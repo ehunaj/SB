@@ -1274,7 +1274,7 @@ def clBot(op):
                          mention = ast.literal_eval(msg.contentMetadata['MENTION'])
                          mentionees = mention['MENTIONEES']
                          for mention in mentionees:
-                             if mention['M'] in Creator:
+                             if mention['M'] in Bots:
                                  cl.sendText(msg.to,ret_)
                                  cl.sendImageWithURL(msg.to,image)
                                  break
