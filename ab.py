@@ -21,13 +21,13 @@ msg_dict = {}
 poll = LinePoll(cl)
 call = LineCall(cl)
 
-ABC = [cl] #kk,kc]
+ABC = [cl] #kk,kc,]
 mid = cl.profile.mid
 #Amid = ki.profile.mid
 #Bmid = kk.profile.mid
 #Cmid = kc.profile.mid
 Bots = [mid] #Amid,Bmid,Cmid]
-Creator = ["u524ea2d84efb40f23df059a88600758d"]
+Creator = ["ub3808de9f7df35f57fb366d157f9790a"]
 admin = ["u524ea2d84efb40f23df059a88600758d","ub3808de9f7df35f57fb366d157f9790a","uc5c11a2e0b6659eacce160de3309c817","uc70e6d1d8ab2061a666aabde3a1f0001"]
 
 contact = cl.getProfile()
@@ -596,8 +596,9 @@ def clBot(op):
                                   midd = msg.text.replace("Invit: ","")
                                   cl.findAndAddContactsByMid(midd)
                                   cl.inviteIntoGroup(msg.to,[midd])
-                              else:
-                                  cl.sendText(msg.to,"Khusus admin")
+                              #else:
+                                  
+#cl.sendText(msg.to,"Khusus admin")
 
 
                             elif text.lower() == 'tagall':
@@ -670,8 +671,10 @@ def clBot(op):
                                 #if msg.to in cctv['point']:
                                     cctv['cyduk'][msg.to]=False
                                     cl.sendText(msg.to,"Ok Off Boss")
-                                else:
-                                    cl.sendText(msg.to, "Heh belom di Set")
+                                
+#else:
+                                    
+#cl.sendText(msg.to, "Heh belom di Set")
                             elif text.lower() == "mid":
                                 cl.sendMessage(msg.to, msg._from)
 
