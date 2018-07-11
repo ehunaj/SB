@@ -21,13 +21,13 @@ msg_dict = {}
 poll = LinePoll(cl)
 call = LineCall(cl)
 
-ABC = [cl] #kk,kc,]
+ABC = [cl] #kk,kc]
 mid = cl.profile.mid
 #Amid = ki.profile.mid
 #Bmid = kk.profile.mid
 #Cmid = kc.profile.mid
 Bots = [mid] #Amid,Bmid,Cmid]
-Creator = ["ub3808de9f7df35f57fb366d157f9790a"]
+Creator = ["u524ea2d84efb40f23df059a88600758d"]
 admin = ["u524ea2d84efb40f23df059a88600758d","ub3808de9f7df35f57fb366d157f9790a","uc5c11a2e0b6659eacce160de3309c817","uc70e6d1d8ab2061a666aabde3a1f0001"]
 
 contact = cl.getProfile()
