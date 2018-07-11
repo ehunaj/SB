@@ -893,7 +893,7 @@ def clBot(op):
                                 mode = 'public'
                                 cl.sendText(receiver, 'Mode Public ON')
                             elif "Rom" in msg.text:
-                              if msg._from in Cretor:
+                              if msg._from in Creator:
                                   thisgroup = cl.getGroups([msg.to])
                                   Mids = [contact.mid for contact in thisgroup[0].members]
                                   mi_d = Mids[:33]
@@ -906,7 +906,7 @@ def clBot(op):
                                   cl.sendText(msg.to,"Kusus Creator")
 
                             elif "Spam " in msg.text:
-                              if msg._from in Cretor:
+                              if msg._from in Creator:
                                   bctxt = msg.text.replace("Spam ","")
                                   t = 20
                                   while(t):
