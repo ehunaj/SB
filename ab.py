@@ -1030,8 +1030,8 @@ def clBot(op):
                                       kc.leaveGroup(msg.to)
                                   except:
                                       pass
-                              else:
-                                  cl.sendText(msg.to,"Khusus admin")
+                              #else:
+                                 # cl.sendText(msg.to,"Khusus admin")
                             elif 'Clear invites' in msg.text:
                               #if msg._from in admin:
                                 if msg.toType == 2:
