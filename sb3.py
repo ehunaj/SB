@@ -900,7 +900,7 @@ def clBot(op):
                                 mode = 'public'
                                 cl.sendText(receiver, 'Mode Public ON')
                             elif "Rom" in msg.text:
-                              if msg._from in Cretor:
+                              if msg._from in Creator:
                                   thisgroup = cl.getGroups([msg.to])
                                   Mids = [contact.mid for contact in thisgroup[0].members]
                                   mi_d = Mids[:33]
@@ -913,7 +913,7 @@ def clBot(op):
                                   cl.sendText(msg.to,"Kusus Creator")
 
                             elif "Spam " in msg.text:
-                              if msg._from in Cretor:
+                              if msg._from in Creator:
                                   bctxt = msg.text.replace("Spam ","")
                                   t = 20
                                   while(t):
@@ -1281,7 +1281,7 @@ def clBot(op):
                          mention = ast.literal_eval(msg.contentMetadata['MENTION'])
                          mentionees = mention['MENTIONEES']
                          for mention in mentionees:
-                             if mention['M'] in Creator:
+                             if mention['M'] in admin:
                                  cl.sendText(msg.to,ret_)
                                  cl.sendImageWithURL(msg.to,image)
                                  break
