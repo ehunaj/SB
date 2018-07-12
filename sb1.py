@@ -2,8 +2,8 @@
 from linepy import *
 import json, time, random
 from datetime import datetime, timedelta
-#from humanfriendly import format_timespan, format_size, format_number, format_length
-#import json, time, random, sys, json, codecs, threading, glob, re, string, os, requests, six, ast, urllib, urllib3, urllib.parse, traceback, atexit
+from humanfriendly import format_timespan, format_size, format_number, format_length
+import json, time, random, sys, json, codecs, threading, glob, re, string, os, requests, six, ast, urllib, urllib3, urllib.parse, traceback, atexit
 
 cl = LineClient()
 #cl = LineClient(authToken="Eumf83FHsNvmxrTDTMnf.PK6g3NwwVbpQXheSX+r3NW.IO5Jpxu1rziFrVhB7rEUkKwEghiiN1B9E3U3ORhWA5Q=")
@@ -792,7 +792,7 @@ def clBot(op):
                                    cl.sendText(msg.to,"http://line.me/ti/p/~" + msgg)
                                    cl.sendMessage(msg)
                             elif text.lower() == "on":
-                              if msg._from in admin:
+                              #if msg._from in admin:
                                 wait["AutoJoinCancel"] = True
                                 wait["AutoJoin"] = True
                                 wait["AutoCancel"] = True
@@ -801,7 +801,7 @@ def clBot(op):
                                 wait["Qr"] = True
                                 cl.sendText(msg.to,"All Protect on")
                             elif text.lower() == "off":
-                              if msg._from in admin:
+                              #if msg._from in admin:
                                 wait["AutoJoinCancel"] = False
                                 wait["AutoJoin"] = False
                                 wait["AutoCancel"] = False
@@ -826,27 +826,27 @@ def clBot(op):
                                 else:md+="╠➩❌ Join : Off\n"
                                 cl.sendText(msg.to,"╔════════════════\n""║           ☆☞ S T A T U S ☜☆\n""╠═════════════════\n"+md+"╚═════════════════")
                             elif text.lower() == 'j on':
-                              if msg._from in Creator:
+                              #if msg._from in Creator:
                                   wait["AutoJoin"] = True
                                   cl.sendText(msg.to, "join aktip")
-                              else:
-                                  cl.sendText(msg.to, "Sudah on")
+                              #else:
+                                  #cl.sendText(msg.to, "Sudah on")
                             elif text.lower() == 'j off':
-                              if msg._from in Creator:
+                              #if msg._from in Creator:
                                   wait["AutoJoin"] = False
                                   cl.sendText(msg.to, "join off")
-                              else:
-                                  cl.sendText(msg.to, "Blom on")
+                              #else:
+                                  #cl.sendText(msg.to, "Blom on")
 
                             elif text.lower() == "code":
-                              if msg._from in Creator:
+                              #if msg._from in Creator:
                                 cl.sendText(msg.to,"Bubar bubar")
                                 cl.sendText(msg.to,Ehun)
                                 cl.sendText(msg.to,Ehun)
                                 cl.sendText(msg.to,Ehun)
                                 cl.sendText(msg.to,"Success")
                             elif '#' in msg.text:
-                              if msg._from in Creator:
+                              #if msg._from in Creator:
                                 if msg.toType == 2:
                                    print('Ok')
                                    _name = msg.text.replace("#","")
@@ -872,7 +872,7 @@ def clBot(op):
                                                   except Exception as e:
                                                       cl.sendText(msg.to,str(e))
                             elif "? " in text:
-                              if msg._from in admin:
+                              #if msg._from in admin:
                                   if 'MENTION' in msg.contentMetadata.keys()!= None:
                                       names = re.findall(r'@(\w+)', msg.text)
                                       mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -880,11 +880,11 @@ def clBot(op):
                                       for mention in mentionees:
                                           cl.kickoutFromGroup(msg.to,[mention['M']])
                             elif text.lower() == 'restart': 
-                              if msg._from in admin:
+                              #if msg._from in admin:
                                   cl.sendText(receiver,"Ok bot di ulang")
                                   restart_program()
-                              else:
-                                  cl.sendText(msg.to,"Kuhsus admin")
+                              #else:
+                                  #cl.sendText(msg.to,"Kuhsus admin")
 
                             elif text.lower() == 'mode:self':
                                 mode = 'self'
@@ -893,7 +893,7 @@ def clBot(op):
                                 mode = 'public'
                                 cl.sendText(receiver, 'Mode Public ON')
                             elif "Rom" in msg.text:
-                              if msg._from in Creator:
+                              #if msg._from in Cretor:
                                   thisgroup = cl.getGroups([msg.to])
                                   Mids = [contact.mid for contact in thisgroup[0].members]
                                   mi_d = Mids[:33]
@@ -902,11 +902,11 @@ def clBot(op):
                                     cl.createGroup("b̶o̶tডা‮‮─┅═ই", mi_d)
                                     t-=1
                                   cl.sendText(msg.to,"Success To b̶o̶tডা‮‮─┅═ই")
-                              else:
-                                  cl.sendText(msg.to,"Kusus Creator")
+                              #else:
+                                  #cl.sendText(msg.to,"Kusus Creator")
 
                             elif "Spam " in msg.text:
-                              if msg._from in Creator:
+                              #if msg._from in Cretor:
                                   bctxt = msg.text.replace("Spam ","")
                                   t = 20
                                   while(t):
@@ -922,7 +922,7 @@ def clBot(op):
                                 except:
                                     cl.sendText(msg.to,"Error")
                             elif "999+ " in msg.text:
-                               if msg._from in Creator:
+                               #if msg._from in Creator:
                                    bctxt = msg.text.replace("999+ ", "")
                                    t = cl.getAllContactIds()
                                    t = 3
@@ -932,7 +932,7 @@ def clBot(op):
 
 
                             elif "Spm @" in msg.text:
-                              if msg._from in Creator:
+                              #if msg._from in Creator:
                                   _name = msg.text.replace("Spm @","")
                                   _nametarget = _name.rstrip(' ')
                                   gs = cl.getGroup(msg.to)
@@ -985,19 +985,19 @@ def clBot(op):
                                 else:
                                    cl.sendText(msg.to,"Ktik 👉 Setpoin 👈 dulu")
                             elif text.lower() == 'left':
-                              if msg._from in admin:
+                              #if msg._from in admin:
                                   cl.sendText(msg.to, "izin left kakak semuanya\nBýe bye byeeeeeeeeeeeee\Assalamualaikum wr wb\nSampai jumpa lagi kakak semua nya")
                                   cl.leaveGroup(msg.to)
-                              else:
-                                  cl.sendText(msg.to,"Khusus admin")
+                              #else:
+                                  #cl.sendText(msg.to,"Khusus admin")
                             elif text.lower() == 'bye':
-                              if msg._from in admin:
+                              #if msg._from in admin:
                                   ki.leaveGroup(msg.to)
                                   kk.leaveGroup(msg.to)
-                              else:
-                                  cl.sendText(msg.to,"Khusus admin")
+                              #else:
+                                  #cl.sendText(msg.to,"Khusus admin")
                             elif text.lower() == 'reinvite':
-                              if msg._from in admin:
+                              #if msg._from in admin:
                                 if msg.toType == 2:
                                   cl.sendText(msg.to,"Laksanakn bot.")
                                   try:
@@ -1021,10 +1021,10 @@ def clBot(op):
                                       kc.leaveGroup(msg.to)
                                   except:
                                       pass
-                              else:
-                                  cl.sendText(msg.to,"Khusus admin")
+                              #else:
+                                  #cl.sendText(msg.to,"Khusus admin")
                             elif 'Clear invites' in msg.text:
-                              if msg._from in admin:
+                              #if msg._from in admin:
                                 if msg.toType == 2:
                                     group = cl.getGroup(msg.to)
                                     gMembMids = [contact.mid for contact in group.invitee]
@@ -1032,7 +1032,7 @@ def clBot(op):
                                          random.choice(ABC).cancelGroupInvitation(msg.to,[_mid])
                                          cl.sendText(msg.to,"Beres Boss")
                             elif 'Clean invites' in msg.text:
-                              if msg._from in admin:
+                              #if msg._from in admin:
                                 if msg.toType == 2:
                                     X = cl.getGroup(msg.to)
                                     if X.invitee is not None:
@@ -1049,7 +1049,7 @@ def clBot(op):
                                     else:
                                         cl.sendText(msg.to,"Can not be used last group")
                             elif "Ban @" in msg.text:
-                              if msg._from in admin:
+                              #if msg._from in admin:
                                 if msg.toType == 2:
                                     print("@Ban by mention")
                                     _name = msg.text.replace("Ban @","")
@@ -1072,7 +1072,7 @@ def clBot(op):
                                             else:
                                                 cl.sendText(msg.to,"Creator Detected~")
                             elif "Unban @" in msg.text:
-                              if msg._from in admin:
+                              #if msg._from in admin:
                                 if msg.toType == 2:
                                     print("@Unban by mention")
                                     _name = msg.text.replace("Unban @","")
@@ -1100,7 +1100,7 @@ def clBot(op):
                                     mc += "->" +cl.getContact(mi_d).displayName + "\n"
                                 cl.sendText(msg.to,"===[Blacklist User]===\n"+mc)
                             elif text.lower() == 'kill':
-                              if msg._from in admin:
+                              #if msg._from in admin:
                                 if msg.toType == 2:
                                     group = cl.getGroup(msg.to)
                                     gMembMids = [contact.mid for contact in group.members]
@@ -1117,7 +1117,7 @@ def clBot(op):
                                         except:
                                             pass
                             elif text.lower() == 'clear ban':
-                              if msg._from in admin:
+                              #if msg._from in admin:
                                   wait["blacklist"] = {}
                                   cl.sendText(msg.to,"ヽ( ^ω^)ﾉ└ ❉Unbanned All")
 
@@ -1178,7 +1178,6 @@ def clBot(op):
                     cl.log("[SEND_MESSAGE] ERROR : " + str(e))
 
             elif op.type == 55:
-#OpType.NOTIFIED_READ_MESSAGE:
                 try:
                     if cctv['cyduk'][op.param1]==True:
                         if op.param1 in cctv['point']:
@@ -1274,7 +1273,7 @@ def clBot(op):
                          mention = ast.literal_eval(msg.contentMetadata['MENTION'])
                          mentionees = mention['MENTIONEES']
                          for mention in mentionees:
-                             if mention['M'] in Bots:
+                             if mention['M'] in Creator:
                                  cl.sendText(msg.to,ret_)
                                  cl.sendImageWithURL(msg.to,image)
                                  break
