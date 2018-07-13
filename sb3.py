@@ -634,7 +634,7 @@ def clBot(op):
                     pass
         #==========B A T A S ===========#
 
-            if op.type == 26:
+            if op.type == 25:
                 msg = op.message
                 text = msg.text
                 msg_id = msg.id
