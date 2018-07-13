@@ -2,26 +2,26 @@
 from linepy import *
 import json, time, random
 from datetime import datetime, timedelta
-from humanfriendly import format_timespan, format_size, format_number, format_length
-import json, time, random, sys, json, codecs, threading, glob, re, string, os, requests, six, ast, urllib, urllib3, urllib.parse, traceback, atexit
+#from humanfriendly import format_timespan, format_size, format_number, format_length
+#import json, time, random, sys, json, codecs, threading, glob, re, string, os, requests, six, ast, urllib, urllib3, urllib.parse, traceback, atexit
 
-#cl = LineClient()
-cl = LineClient(authToken="Eumf83FHsNvmxrTDTMnf.PK6g3NwwVbpQXheSX+r3NW.IO5Jpxu1rziFrVhB7rEUkKwEghiiN1B9E3U3ORhWA5Q=")
+cl = LineClient()
+#cl = LineClient(authToken="Eumf83FHsNvmxrTDTMnf.PK6g3NwwVbpQXheSX+r3NW.IO5Jpxu1rziFrVhB7rEUkKwEghiiN1B9E3U3ORhWA5Q=")
 #cl = LineClient(id='ehunaja18@gmail.com', passwd='ehun4321')
 cl.log("Auth Token : " + str(cl.authToken))
 
-ki = LineClient(authToken="EuHJCQ1vqmlZ4WwyLl67.g9nBPWGTC+xOOBjDfnvjrW.dd+sazx1tT6IEW4oZ0DkOVIgEURupf6un4Wt3+JR9/E=")
-ki.log("Auth Token : " + str(ki.authToken))
+#ki = LineClient(authToken="EuHJCQ1vqmlZ4WwyLl67.g9nBPWGTC+xOOBjDfnvjrW.dd+sazx1tT6IEW4oZ0DkOVIgEURupf6un4Wt3+JR9/E=")
+#ki.log("Auth Token : " + str(ki.authToken))
 
-kk = LineClient(authToken="Eu5CoUf9A0BMfrGuskye.pYxjKbe7w+1iIyyJvihN7G.h7uUkkVGVQdx9r9ERrxcdSDDHlQ3437pp2ZgcnLHX70=")
-kk.log("Auth Token : " + str(kk.authToken))
+#kk = LineClient(authToken="Eu5CoUf9A0BMfrGuskye.pYxjKbe7w+1iIyyJvihN7G.h7uUkkVGVQdx9r9ERrxcdSDDHlQ3437pp2ZgcnLHX70=")
+#kk.log("Auth Token : " + str(kk.authToken))
 
 # kc = LineClient(authToken="Euy6VKojcR3ftL4te3y1.8nezDhK7HGW9hVtLK4qvGq.zRrAk0dbZFX5VKDpfNIU6wYfpvAknpQsRiybrLAFkzc=")
 #kc.log("Auth Token : " + str(kc.authToken))
 
 #channel = LineChannel(cl)
 #cl.log("Channel Access Token : " + str(channel.channelAccessToken))
-
+kk = ki = cl
 print("success")
 
 msg_dict = {}
