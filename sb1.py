@@ -2,7 +2,7 @@
 from linepy import *
 import json, time, random
 from datetime import datetime, timedelta
-from humanfriendly import format_timespan, format_size, format_number, format_length
+#from humanfriendly import format_timespan, format_size, format_number, format_length
 import json, time, random, sys, json, codecs, threading, glob, re, string, os, requests, six, ast, urllib, urllib3, urllib.parse, traceback, atexit
 
 cl = LineClient()
@@ -386,16 +386,13 @@ while True:
                                 wait["invite"] = True
                                 cl.sendText(msg.to, "Kirim contak nya")
                             elif 'Invit: ' in msg.text:
-                              if msg._from in admin:
                                   midd = msg.text.replace("Invit: ","")
                                   cl.findAndAddContactsByMid(midd)
                                   cl.inviteIntoGroup(msg.to,[midd])
-                              else:
-                                  cl.sendText(msg.to,"Khusus admin")
+     
 
 
                             elif text.lower() == 'tagall':
-                              if msg._from in admin:
                                 group = cl.getGroup(msg.to)
                                 nama = [contact.mid for contact in group.members]
                                 nm1, nm2, nm3, nm4, nm5, jml = [], [], [], [], [], len(nama)
