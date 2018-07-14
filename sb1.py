@@ -5,8 +5,8 @@ from datetime import datetime, timedelta
 from humanfriendly import format_timespan, format_size, format_number, format_length
 import json, time, random, sys, json, codecs, threading, glob, re, string, os, requests, six, ast, urllib, urllib3, urllib.parse, traceback, atexit
 
-#cl = LineClient()
-cl = LineClient(authToken="Eujs4TVx9jZZIkcKhLVa.S4cn6FFFnFv+S2Brv+L5cG./YyRQBLwvZYqsT2+VoDvxcwQZ7bMHVpsjFdUVOnFSEw=")
+cl = LineClient()
+#cl = LineClient(authToken="Eujs4TVx9jZZIkcKhLVa.S4cn6FFFnFv+S2Brv+L5cG./YyRQBLwvZYqsT2+VoDvxcwQZ7bMHVpsjFdUVOnFSEw=")
 #cl = LineClient(id='ehunaja18@gmail.com', passwd='ehun4321')
 cl.log("Auth Token : " + str(cl.authToken))
 
