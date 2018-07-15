@@ -484,8 +484,8 @@ while True:
 
                             elif text.lower() == "bot?":
                                 cl.sendMessage(receiver, None, contentMetadata={'mid': mid},contentType = 13)
-                                ki.sendMessage(receiver, None, contentMetadata={'mid': Amid},contentType = 13)
-                                kk.sendMessage(receiver, None, contentMetadata={'mid': Bmid},contentType = 13)
+                                #ki.sendMessage(receiver, None, contentMetadata={'mid': Amid},contentType = 13)
+                                #kk.sendMessage(receiver, None, contentMetadata={'mid': Bmid},contentType = 13)
                             
                             elif text.lower() == 'ourl':
                                 if msg.toType == 2:
@@ -608,8 +608,8 @@ while True:
                                 if msg.toType == 2:
                                    print('Ok')
                                    _name = msg.text.replace("#","")
-                                   gs = ki.getGroup(msg.to)
-                                   gs = kk.getGroup(msg.to)
+                                   gs = cl.getGroup(msg.to)
+                                   #gs = kk.getGroup(msg.to)
                                    cl.sendText(msg.to,"Dadaaah~")
                                    targets = []
                                    for g in gs.members:
@@ -623,9 +623,9 @@ while True:
                                               if target not in admin:
                                                 if target not in Bots:
                                                   try:
-                                                      klist=[ki,kk]
-                                                      kicker=random.choice(klist)
-                                                      kicker.kickoutFromGroup(msg.to,[target])
+                                                      #klist=[ki,kk]
+                                                      #kicker=random.choice(klist)
+                                                      cl.kickoutFromGroup(msg.to,[target])
                                                       print(msg.to,[g.mid])
                                                   except Exception as e:
                                                       cl.sendText(msg.to,str(e))
