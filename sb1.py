@@ -2,7 +2,7 @@
 from linepy import *
 import json, time, random
 from datetime import datetime, timedelta
-#from humanfriendly import format_timespan, format_size, format_number, format_length
+from humanfriendly import format_timespan, format_size, format_number, format_length
 import json, time, random, sys, json, codecs, threading, glob, re, string, os, requests, six, ast, urllib, urllib3, urllib.parse, traceback, atexit
 
 cl = LineClient()
@@ -28,6 +28,7 @@ Creator = ["ub3808de9f7df35f57fb366d157f9790a"]
 admin = ["ub3808de9f7df35f57fb366d157f9790a","uc5c11a2e0b6659eacce160de3309c817","uc70e6d1d8ab2061a666aabde3a1f0001"]
 
 contact = cl.getProfile()
+
 responsename = cl.getProfile().displayName
 
 help ="""=================
@@ -169,8 +170,10 @@ while True:
     try:
         ops=poll.singleTrace(count=50)
         for op in ops:
-            #if op.type == 26:
-                #msg = op.message
+            pass
+
+            if op.type == 26:
+                msg = op.message
                 #if msg.text != None:
                     #if msg.toType == 2:
                         #may = cl.getProfile().mid
@@ -184,9 +187,6 @@ while True:
                         #pass
                 #else:
                     #pass
-            if op.type == 0:
-                pass
-
             if op.type == 5:
                 if wait["autoAdd"] == True:
                     cl.findAndAddContactsByMid(op.param1)
@@ -205,11 +205,11 @@ while True:
             if op.type == 13:
                 if op.param3 in mid:
                     if op.param2 in Creator and op.param2 in admin:
-                        ki.acceptGroupInvitation(op.param1)
+                        cl.acceptGroupInvitation(op.param1)
 
             if op.type == 13:
                 if mid in op.param3:
-                    if wait["AutoJoinCancel"] == True:
+                    if wait["AutoJoin"] == True:
                         G = cl.getGroup(op.param1)
                         if len(G.members) <= wait["memberscancel"]:
                             cl.acceptGroupInvitation(op.param1)
@@ -218,51 +218,29 @@ while True:
                             cl.leaveGroup(op.param1)
                         else:
                             cl.acceptGroupInvitation(op.param1)
-                            cl.inviteIntoGroup(op.param1,[op.param3])
-                            ki.acceptGroupInvitation(op.param1)
-                            kk.acceptGroupInvitation(op.param1)
                             cl.sendText(op.param1,"☆Ketik ☞Help☜ Untuk Bantuan☆\n☆Harap Gunakan Dengan Bijak ^_^ ☆")
                             pass
-                    else:
-                        pass
-            if op.type == 13:
-                if mid in op.param3:
-                    if wait["AutoJoin"] == True:
-                        if wait["AutoCancel"]["on"] == True:
-                            G = cl.getGroup(op.param1)
-                            if len(G.members) <= wait["Members"]:
-                                cl.rejectGroupInvitation(op.param1)
-                            else:
-                                cl.acceptGroupInvitation(op.param1)
-                        else:
-                            cl.acceptGroupInvitation(op.param1)
-                            cl.inviteIntoGroup(op.param1,[op.param3])
-                            ki.acceptGroupInvitation(op.param1)
-                            kk.acceptGroupInvitation(op.param1)
-                            cl.sendText(op.param1,"☆Ketik ☞Help☜ Untuk Bantuan☆\n☆Harap Gunakan Dengan Bijak ^_^ ☆")
-                            cl.sendMessage(to=op.param1, _from=None, text=None, contentMetadata={'mid':op.param2}, contentType=13)
-                    elif wait["AutoCancel"]["on"] == True:
-                        if len(G.members) <= wait["AutoCancel"]["members"]:
-                            cl.rejectGroupInvitation(op.param1)
-                        else:
-                            if op.param3 in wait["blacklist"]:
-                                cl.cancelGroupInvitation(op.param1, [op.param3])
-                                cl.sendText(op.param1, "Blacklist Detected")
-                            else:
-                                if op.param2 not in Bots and op.param2 not in admin:
-                                    cl.cancelGroupInvitation(op.param1, [op.param3])
-                                else:
-                                    pass
                 else:
-                    Inviter = op.param3.replace("",',')
-                    InviterX = Inviter.split(",")
-                    matched_list = []
-                    for tag in wait["blacklist"]:
-                        matched_list+=filter(lambda str: str == tag, InviterX)
-                    if matched_list == []:
-                        pass
+                    if wait["AutoCancel"] == True:
+                        if op.param3 in admin and Creator:
+                            pass
+                        else:
+                            cl.cancelGroupInvitation(op.param1, [op.param3])
                     else:
-                        cl.cancelGroupInvitation(op.param1, matched_list)
+                        if op.param3 in wait["blacklist"]:
+                            cl.cancelGroupInvitation(op.param1, [op.param3])
+                            cl.sendText(op.param1, "BlacklistDetected")
+                        else:
+                            Inviter = op.param3.replace("",',')
+                            InviterX = Inviter.split(",")
+                            matched_list = []
+                            for tag in wait["blacklist"]:
+                                matched_list+=filter(lambda str: str == tag, InviterX)
+                                if matched_list == []:
+                                    pass
+                                else:
+                                    cl.cancelGroupInvitation(op.param1, matched_list)
+
 
             if op.type == 19:
                     if wait["AutoKick"] == True:
@@ -389,7 +367,6 @@ while True:
                                   midd = msg.text.replace("Invit: ","")
                                   cl.findAndAddContactsByMid(midd)
                                   cl.inviteIntoGroup(msg.to,[midd])
-     
 
 
                             elif text.lower() == 'tagall':
@@ -484,16 +461,14 @@ while True:
 
                             elif text.lower() == "bot?":
                                 cl.sendMessage(receiver, None, contentMetadata={'mid': mid},contentType = 13)
-                                #ki.sendMessage(receiver, None, contentMetadata={'mid': Amid},contentType = 13)
-                                #kk.sendMessage(receiver, None, contentMetadata={'mid': Bmid},contentType = 13)
-                            
+   
                             elif text.lower() == 'ourl':
                                 if msg.toType == 2:
                                     X = cl.getGroup(msg.to)
                                     X.preventJoinByTicket = False
                                     cl.updateGroup(X)
                                     cl.sendText(msg.to,"Url Sudah Di Aktifkan")
-                            
+   
                             elif text.lower() == 'curl':
                                 if msg.toType == 2:
                                     X = cl.getGroup(msg.to)
@@ -591,12 +566,12 @@ while True:
                                 else:md+="╠➩❌ Join : Off\n"
                                 cl.sendText(msg.to,"╔════════════════\n""║           ☆☞ S T A T U S ☜☆\n""╠═════════════════\n"+md+"╚═════════════════")
                             elif text.lower() == 'j on':
-                                  wait["AutoJoin"] = True
-                                  cl.sendText(msg.to, "join aktip")
+                                wait["AutoJoin"] = True
+                                cl.sendText(msg.to, "join aktip")
                        
                             elif text.lower() == 'j off':
-                                  wait["AutoJoin"] = False
-                                  cl.sendText(msg.to, "join off")
+                                wait["AutoJoin"] = False
+                                cl.sendText(msg.to, "join off")
 
                             elif text.lower() == "code":
                                 cl.sendText(msg.to,"Bubar bubar")
@@ -608,8 +583,8 @@ while True:
                                 if msg.toType == 2:
                                    print('Ok')
                                    _name = msg.text.replace("#","")
-                                   gs = cl.getGroup(msg.to)
-                                   #gs = kk.getGroup(msg.to)
+                                   gs = ki.getGroup(msg.to)
+                                   gs = kk.getGroup(msg.to)
                                    cl.sendText(msg.to,"Dadaaah~")
                                    targets = []
                                    for g in gs.members:
@@ -623,8 +598,6 @@ while True:
                                               if target not in admin:
                                                 if target not in Bots:
                                                   try:
-                                                      #klist=[ki,kk]
-                                                      #kicker=random.choice(klist)
                                                       cl.kickoutFromGroup(msg.to,[target])
                                                       print(msg.to,[g.mid])
                                                   except Exception as e:
@@ -637,8 +610,8 @@ while True:
                                       for mention in mentionees:
                                           cl.kickoutFromGroup(msg.to,[mention['M']])
                             elif text.lower() == 'restart':
-                                  cl.sendText(receiver,"Ok bot di ulang")
-                                  restart_program()
+                                cl.sendText(receiver,"Ok bot di ulang")
+                                restart_program()
 
                             elif text.lower() == 'mode:self':
                                 mode = 'self'
@@ -839,7 +812,7 @@ while True:
                                       num=(num+1)
                                   msgs+="\n═════════List Member═════════\n\nTotal Members : %i" % len(group)
                                   cl.sendText(msg.to, msgs)
-                            elif "Inpo" in msg.text:
+                            elif "Info" in msg.text:
                                 key = eval(msg.contentMetadata["MENTION"])
                                 key1 = key["MENTIONEES"][0]["M"]
                                 contact = cl.getContact(key1)
@@ -888,7 +861,8 @@ while True:
 
 
                 except Exception as e:
-                    cl.log("[SEND_MESSAGE] ERROR : " + str(e))
+                    cl.log(e)
+#SEND_MESSAGE] ERROR : " + str(e))
 
             elif op.type == 55:
                 try:
@@ -925,7 +899,7 @@ while True:
                    else:
                      cl.sendText
                 except Exception as e:
-                     cl.log("[SEND_MESSAGE] ERROR : " + str(e))
+                     cl.log(e)
              #if op.type == 55:
                  
 
@@ -977,7 +951,7 @@ while True:
 
                 if 'MENTION' in msg.contentMetadata.keys() != None:
                      if wait["detectMention"] == True:
-                         contact = cl.getContact(msg._from)
+                         #contact = cl.getContact(msg._from)
                          cName = contact.displayName
                          balas = ["Woi kak " + "☞ " + cName + " ☜" + "Jgn ngtag ngetag\nHp ngebleng semmm kak", "Woi kak " + "☞ " + cName + " ☜" + "Kakak kangen ya?\n Pm aja kak\nIni rahsia prusahaan ya kak(-_-)", "Woi kak " + "☞ " + cName + " ☜" + "Aku gi sibuk\nKalo kangen bilang kak\n kak serius naksir aku ya?"]
                          ret_ = random.choice(balas)
@@ -999,9 +973,11 @@ while True:
                         wait['likeOn'] = False
             if op.type == 26:
                 msg = op.message
+
                 if msg.text in ["Bot on"]:
                      wait["Bot"] = True
-                     sendText(msg.to,"Bot Sudah On Kembali.")
+                     cl.sendText(msg.to,"Bot Sudah On Kembali.")
+
             if op.type == 26:
               if wait["Bot"] == True:
                 msg = op.message
@@ -1017,6 +993,7 @@ while True:
                                 cl.sendText(msg.to,"Ditambahkan")
                         else:
                             cl.sendText(msg.to,"Admin Detected~")
+
                     elif wait["Contact"] == True:
                         msg.contentType = 0
                         cl.sendText(msg.to,msg.contentMetadata["mid"])
@@ -1033,7 +1010,8 @@ while True:
                                 cu = cl.channel.getCover(msg.contentMetadata["mid"])
                             except:
                                 cu = ""
-                            cl.sendText(msg.to,"Nama:\n" + msg.contentMetadata["displayName"] + "\n\nMid:\n" + msg.contentMetadata["mid"] + "\n\nStatus:\n" + contact.statusMessage + "\n\nPhoto Profile:\nhttp://dl.profile.line-cdn.net/" + contact.pictureStatus + "\n\nPhoto Cover:\n" + str(cu))
+                            cl.sendText(msg.to, "Nama:\n" + msg.contentMetadata["displayName"] + "\n\nMid:\n" + msg.contentMetadata["mid"] + "\n\nStatus:\n" + contact.statusMessage + "\n\nPhoto Profile:\nhttp://dl.profile.line-cdn.net/" + contact.pictureStatus + "\n\nPhoto Cover:\n" + str(cu))
+
                     elif msg.contentType == 16:
                         if wait["Timeline"] == True:
                             msg.contentType = 0
@@ -1074,7 +1052,6 @@ while True:
         cl.log(error)
         traceback.print_tb(error.__traceback__)
         if ops is not None:
-           #for op in ops:
                 poll.setRevision(op.revision)
                 #clBot(op)
              #cl.log("[SINGLE_TRACE] ERROR : " + str(e))
