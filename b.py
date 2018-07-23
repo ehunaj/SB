@@ -655,11 +655,11 @@ def clBot(op):
                               
                             elif text.lower() == 'qr on':
                                   wait["Qr"] = True
-                                  cl.sendText(msg.to,"Qr on")
+                                  cl.sendText(msg.to,"Protect Qr on")
                               
                             elif text.lower() == 'qr off':
                                   wait["Qr"] = False
-                                  cl.sendText(msg.to,"Qr off")
+                                  cl.sendText(msg.to,"Protect Qr off")
                               
                             elif text.lower() == 'cancel on':
                                   wait["AutoCancel"] = True
