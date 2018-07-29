@@ -5,9 +5,9 @@ from datetime import datetime, timedelta
 from humanfriendly import format_timespan, format_size, format_number, format_length
 import json, time, random, sys, json, codecs, threading, glob, re, string, os, requests, six, ast, urllib, urllib3, urllib.parse, traceback, atexit
 
-cl = LineClient()
-#cl = LineClient(authToken="token anda")
-#cl = LineClient(id='imel anda', passwd='paaword anda')
+#cl = LineClient()
+#cl = LineClient(authToken="Eumf83FHsNvmxrTDTMnf.PK6g3NwwVbpQXheSX+r3NW.IO5Jpxu1rziFrVhB7rEUkKwEghiiN1B9E3U3ORhWA5Q=")
+cl = LineClient(id='rennydewi221@gmail.com', passwd='fitria789')
 cl.log("Auth Token : " + str(cl.authToken))
 
 #ki = LineClient(authToken="EuHJCQ1vqmlZ4WwyLl67.g9nBPWGTC+xOOBjDfnvjrW.dd+sazx1tT6IEW4oZ0DkOVIgEURupf6un4Wt3+JR9/E=")
@@ -39,9 +39,8 @@ Bmid = kk.profile.mid
 #Cmid = kc.profile.mid
 Induk= [mid]
 Bots = [mid,Amid,Bmid] #Cmid]
-Creator = ["ub3808de9f7df35f57fb366d157f9790a"]
-admin = ["ub3808de9f7df35f57fb366d157f9790a","uc5c11a2e0b6659eacce160de3309c817","uc70e6d1d8ab2061a666aabde3a1f0001","u0b0e09dce2bd119f794a1adaa977efce","u5a983f6c4d513d79b19ca11cb5dc53ec"]
-
+Creator = ["uc5c11a2e0b6659eacce160de3309c817","ub3808de9f7df35f57fb366d157f9790a"]
+admin = ["ub3808de9f7df35f57fb366d157f9790a","uc5c11a2e0b6659eacce160de3309c817"]
 contact = cl.getProfile()
 contact = ki.getProfile()
 contact = kk.getProfile()
@@ -136,8 +135,8 @@ wait={
     "AutoJoinCancel":False,
     "memberscancel":7,
     "Members":1,
-    "AutoCancel":True,
-    "AutoKick":True,
+    "AutoCancel":False,
+    "AutoKick":False,
     'invite':{},
     'steal':{},
     'gift':{},
@@ -150,11 +149,11 @@ wait={
     "dblack":False,
     "blacklist":{},
     "wblacklist":False,
-    "Qr":True,
+    "Qr":False,
     "Sider":False,
-    "Contact":True,
+    "Contact":False,
     "Sambutan":True,
-    "inviteprotect":True,
+    "inviteprotect":False,
     "pname":{},
     "pro_name":{},
     "Simi":{},
@@ -318,7 +317,8 @@ def clBot(op):
 #--------------------------------------#
             if op.type == 19:
                 if op.param2 not in Bots:
-                    random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
+                    
+#random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
                     random.choice(ABC).inviteIntoGroup(op.param1,[op.param3])
             if op.type == 19:
                 if op.param3 in Induk:
@@ -377,57 +377,95 @@ def clBot(op):
 
 
 
-            if op.type == 19:
-                    if wait["AutoKick"] == True:
-                        try:
-                            if op.param3 in Creator:
-                             if op.param3 in admin:
-                              if op.param3 in Bots:
-                                  pass
-                             if op.param2 in Creator:
-                              if op.param2 in admin:
-                               if op.param2 in Bots:
-                                   pass
-                               else:
-                                   random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
-                                   if op.param2 in wait["blacklist"]:
-                                       pass
-                            else:
-                                random.choice(ABC).inviteIntoGroup(op.param1,[op.param3])
-                                ki.acceptGroupInvitationByTicket(op.param1, [op.param3])
-                                kk.acceptGroupInvitationByTicket(op.param1, [op.param3])
-                        except:
-                            try:
-                                if op.param2 not in Creator:
-                                    if op.param2 not in admin:
-                                        if op.param2 not in Bots:
-                                            random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
-                                if op.param2 in wait["blacklist"]:
-                                    pass
-                                else:
-                                    random.choice(ABC).inviteIntoGroup(op.param1,[op.param3])
-                            except:
-                                print("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
-                            if op.param2 in wait["blacklist"]:
-                                pass
-                            else:
-                                if op.param2 in Creator:
-                                    if op.param2 in admin:
-                                        if op.param2 in Bots:
-                                            pass
-                                else:
-                                    wait["blacklist"] = True
-                        if op.param2 in wait["blacklist"]:
-                            pass
-                        else:
-                            if op.param2 in Creator:
-                                if op.param2 in admin:
-                                    if op.param2 in Bots:
-                                        pass
-                            else:
-                                wait["blacklist"] = True
-                    else:
-                        pass
+            #if op.type == 19:
+                    #if wait["AutoKick"] == True:
+                        #try:
+                            #if op.param3 in Creator:
+                             #if op.param3 in admin:
+                              
+#if op.param3 in Bots:
+                                  
+#pass
+                             #if op.param2 in Creator:
+                              
+#if op.param2 in admin:
+                               
+#if op.param2 in Bots:
+                                   
+#pass
+                               
+#else:
+                                   
+#random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
+                                   
+#if op.param2 in wait["blacklist"]:
+                                       
+#pass
+                            
+#else:
+                                
+#random.choice(ABC).inviteIntoGroup(op.param1,[op.param3])
+                                
+#ki.acceptGroupInvitationByTicket(op.param1, [op.param3])
+                                
+#kk.acceptGroupInvitationByTicket(op.param1, [op.param3])
+                        #except:
+                            
+#try:
+                                
+#if op.param2 not in Creator:
+                                    
+#if op.param2 not in admin:
+                                        
+#if op.param2 not in Bots:
+                                            
+#random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
+                                
+#if op.param2 in wait["blacklist"]:
+                                    
+#pass
+                                
+#else:
+                                    
+#random.choice(ABC).inviteIntoGroup(op.param1,[op.param3])
+                            
+#except:
+                                
+#print("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
+                            #if op.param2 in wait["blacklist"]:
+                                
+#pass
+                            
+#else:
+                                
+#if op.param2 in Creator:
+                                    
+#if op.param2 in admin:
+                                        
+#if op.param2 in Bots:
+                                            
+#pass
+                                
+#else:
+                                    
+#wait["blacklist"] = True
+                        #if op.param2 in wait["blacklist"]:
+                            
+#pass
+                        #else:
+                            #if op.param2 in Creator:
+                                
+#if op.param2 in admin:
+                                    
+#if op.param2 in Bots:
+                                        
+#pass
+                            
+#else:
+                                
+#wait["blacklist"] = True
+                    #else:
+                        #pass
             if op.type == 19:
                 if wait["AutoKick"] == True:
                     if mid in op.param3:
@@ -649,8 +687,10 @@ def clBot(op):
                                 cl.sendMessage(receiver, None, contentMetadata={'mid': 'ub3808de9f7df35f57fb366d157f9790a'},contentType=13)
                                 cl.sendText(receiver, "Itu Majikan Kami")
                             elif text.lower() == "virus":
+                              if msg._from in Creator:
                                 cl.sendMessage(receiver, None, contentMetadata={'mid': "BEBAS,'"},contentType=13)
                             elif text.lower() == "invite":
+                              if msg._from in Creator:
                                 wait["invite"] = True
                                 cl.sendText(msg.to, "Kirim contak nya")
                             elif 'Invit: ' in msg.text:
@@ -846,6 +886,7 @@ def clBot(op):
 
 
                             elif 'Id ' in text:
+                              if msg._from in Creator:
                                 msgg = msg.text.replace('Id ',"")
                                 conn = cl.findContactsByUserid(msgg)
                                 if True:
@@ -984,7 +1025,7 @@ def clBot(op):
                                 except:
                                     cl.sendText(msg.to,"Error")
                             elif "999+ " in msg.text:
-                               if msg._from in Creator:
+                              if msg._from in Creator:
                                    bctxt = msg.text.replace("999+ ", "")
                                    t = cl.getAllContactIds()
                                    t = 3
@@ -1023,6 +1064,7 @@ def clBot(op):
                                 cl.sendText(receiver,"Ehun Bot Sudah BerjalanSelama :\n"+waktu(eltime))
 
                             elif "Setpoin" in msg.text:
+                              if msg._from in admin:
                                 cl.sendText(msg.to,"☆> Set <☆('・ω・') Jam [ " + datetime.today().strftime('%H:%M:%S') + " ]")
                                 try:
                                     del wait2['readPoint'][msg.to]
@@ -1035,6 +1077,7 @@ def clBot(op):
                                 wait2['setTime'][msg.to] = datetime.strftime(now2,"%H:%M:%S")
                                 wait2['ROM'][msg.to] = {}
                             elif msg.text in ["Laspoin"]:
+                              if msg._from in admin:
                                 if msg.to in wait2['readPoint']:
                                    if wait2["ROM"][msg.to].items() == []:
                                         chiya = ""
@@ -1458,8 +1501,8 @@ def clBot(op):
                                 cu = cl.channel.getCover(msg.contentMetadata["mid"])
                             except:
                                 cu = ""
-                            aku = "Nama:\n" + msg.contentMetadata["displayName"] + "\n\nMid:\n" + msg.contentMetadata["mid"] + "\n\nStatus:\n" + contact.statusMessage + "\n\nPhoto Profile:\nhttp://dl.profile.line-cdn.net/" + contact.pictureStatus + "\n\nPhoto Cover:\n" + str(cu)
-                            cl.sendMessage(aku)
+                            cl.sendText(msg.to, "Nama:\n" + msg.contentMetadata["displayName"] + "\n\nMid:\n" + msg.contentMetadata["mid"] + "\n\nStatus:\n" + contact.statusMessage + "\n\nPhoto Profile:\nhttp://dl.profile.line-cdn.net/" + contact.pictureStatus + "\n\nPhoto Cover:\n" + str(cu))
+                        
                     elif msg.contentType == 16:
                         if wait["Timeline"] == True:
                             msg.contentType = 0
