@@ -5,20 +5,14 @@ from datetime import datetime, timedelta
 from humanfriendly import format_timespan, format_size, format_number, format_length
 import json, time, random, sys, json, codecs, threading, glob, re, string, os, requests, six, ast, urllib, urllib3, urllib.parse, traceback, atexit
 
-#cl = LineClient()
+cl = LineClient()
 #cl = LineClient(authToken="Eumf83FHsNvmxrTDTMnf.PK6g3NwwVbpQXheSX+r3NW.IO5Jpxu1rziFrVhB7rEUkKwEghiiN1B9E3U3ORhWA5Q=")
-cl = LineClient(id='rennydewi221@gmail.com', passwd='fitria789')
+#cl = LineClient(id='rennydewi221@gmail.com', passwd='fitria789')
 cl.log("Auth Token : " + str(cl.authToken))
-
 #ki = LineClient(authToken="EuHJCQ1vqmlZ4WwyLl67.g9nBPWGTC+xOOBjDfnvjrW.dd+sazx1tT6IEW4oZ0DkOVIgEURupf6un4Wt3+JR9/E=")
 #ki.log("Auth Token : " + str(ki.authToken))
 
-#kk = LineClient(authToken="EuhG1PsRPQPcvuVo04q6.8b9UL15I+4kH7tSG4DI/LG.ichPmNS8tQKYFeeWNnv/uwRx0NFQJkE13TgkrA//JE4=")
-#kk.log("Auth Token : " + str(kk.authToken))
-
-# kc = LineClient(authToken="Euy6VKojcR3ftL4te3y1.8nezDhK7HGW9hVtLK4qvGq.zRrAk0dbZFX5VKDpfNIU6wYfpvAknpQsRiybrLAFkzc=")
-#kc.log("Auth Token : " + str(kc.authToken))
-kk = ki = cl
+ki = cl
 #channel = LineChannel(cl)
 #cl.log("Channel Access Token : " + str(channel.channelAccessToken))
 
@@ -28,26 +22,22 @@ msg_dict = {}
 
 poll = LinePoll(cl)
 poll = LinePoll(ki)
-poll = LinePoll(kk)
 call = LineCall(cl)
 call = LineCall(ki)
-call = LineCall(kk)
-ABC = [cl,ki,kk]
+
+ABC = [cl,ki]
+
 mid = cl.profile.mid
 Amid = ki.profile.mid
-Bmid = kk.profile.mid
-#Cmid = kc.profile.mid
+
 Induk= [mid]
-Bots = [mid,Amid,Bmid] #Cmid]
+Bots = [mid,Amid]
 Creator = ["uc5c11a2e0b6659eacce160de3309c817","ub3808de9f7df35f57fb366d157f9790a"]
 admin = ["ub3808de9f7df35f57fb366d157f9790a","uc5c11a2e0b6659eacce160de3309c817"]
 contact = cl.getProfile()
 contact = ki.getProfile()
-contact = kk.getProfile()
-#contact = kc.getProfile()
 responsename = cl.getProfile().displayName
 responsename = ki.getProfile().displayName
-responsename = kk.getProfile().displayName
 
 help ="""=================
 By Ehun bot
@@ -247,30 +237,15 @@ def clBot(op):
                 if op.param3 in mid:
                     if op.param2 in Creator and op.param2 in admin:
                         ki.acceptGroupInvitation(op.param1)
-                if op.param3 in Bmid:
-                    if op.param2 in Creator and op.param2 in admin:
-                        kk.acceptGroupInvitation(op.param1)
 
                 if op.param3 in mid:
                     if op.param2 in Amid:
                         cl.acceptGroupInvitation(op.param1)
-                if op.param3 in mid:
-                    if op.param2 in Bmid:
-                        cl.acceptGroupInvitation(op.param1)
-
-                if op.param3 in Amid:
-                    if op.param2 in Bmid:
-                        ki.acceptGroupInvitation(op.param1)
                 if op.param3 in Amid:
                     if op.param2 in mid:
                         ki.acceptGroupInvitation(op.param1)
 
-                if op.param3 in Bmid:
-                    if op.param2 in mid:
-                        kk.acceptGroupInvitation(op.param1)
-                if op.param3 in Bmid:
-                    if op.param2 in Amid:
-                        kk.acceptGroupInvitation(op.param1)
+
             if op.type == 13:
                 if mid in op.param3:
                     if wait["AutoJoinCancel"] == True:
@@ -317,14 +292,14 @@ def clBot(op):
 #--------------------------------------#
             if op.type == 19:
                 if op.param2 not in Bots:
-                    
-#random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
                     random.choice(ABC).inviteIntoGroup(op.param1,[op.param3])
             if op.type == 19:
                 if op.param3 in Induk:
+                    
+#ki.kickoutFromGroup(op.param1,[op.param2])
                     ki.inviteIntoGroup(op.param1,[op.param3])+ str(mid)
-                    kk.inviteIntoGroup(op.param1,[op.param3])+ str(mid)
-                    random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
+                    cl.acceptGroupInvitation(op.param1)
+
             if op.type == 19:
                 if op.param3 in admin:
                     if op.param2 in Bots:
@@ -332,7 +307,8 @@ def clBot(op):
                     if op.param2 in Creator:
                         pass
                     else:
-                        random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
+                        
+#random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
                         cl.inviteIntoGroup(op.param1,[op.param3])
             if op.type == 19:
                 if op.param2 in Bots:
@@ -342,7 +318,8 @@ def clBot(op):
                 else:
                     try:
                         G = cl.getGroup(op.param1)
-                        cl.kickoutFromGroup(op.param1,[op.param2])
+                        
+#cl.kickoutFromGroup(op.param1,[op.param2])
                         G.preventJoinByTicket = False
                         cl.updateGroup(G)
                         Ticket = cl.reissueGroupTicket(op.param1)
@@ -350,16 +327,13 @@ def clBot(op):
                         time.sleep(0.001)
                         ki.acceptGroupInvitationByTicket(op.param1,Ticket)
                         time.sleep(0.001)
-                        kk.acceptGroupInvitationByTicket(op.param1,Ticket)
-                        time.sleep(0.001)
-                        kc.acceptGroupInvitationByTicket(op.param1,Ticket)
-                        time.sleep(0.001)
                         G.preventJoinByTicket = True
                         cl.updateGroup(G)
                         wait["blacklist"][op.param2] = True
                     except:
                         G = random.choice(ABC).getGroup(op.param1)
-                        random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
+                        
+#random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
                         G.preventJoinByTicket = False
                         random.choice(ABC).updateGroup(G)
                         Ticket = random.choice(ABC).reissueGroupTicket(op.param1)
@@ -367,11 +341,8 @@ def clBot(op):
                         time.sleep(0.001)
                         ki.acceptGroupInvitationByTicket(op.param1,Ticket)
                         time.sleep(0.001)
-                        kk.acceptGroupInvitationByTicket(op.param1,Ticket)
-                        time.sleep(0.001)
-                        kc.acceptGroupInvitationByTicket(op.param1,Ticket)
-                        time.sleep(0.001)
                         G.preventJoinByTicket = True
+                        cl.updateGroup(G)
                         wait["blacklist"][op.param2] = True
 #--------------batas
 
@@ -474,11 +445,14 @@ def clBot(op):
                           if op.param2 not in Bots:
                             pass
                         try:
-                            random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
-                            random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
+                            ki.inviteIntoGroup(op.param1,[op.param3])+ str(mid)
+#kickoutFromGroup(op.param1,[op.param2])
+                            
+#random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
                         except:
                             try:
-                                random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
+                                random.choice(ABC).inviteIntoGroup(op.param1,[op.param3])+ str(mid) 
+#kickoutFromGroup(op.param1,[op.param2])
                             except:
                                 print("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
                             if op.param2 in wait["blacklist"]:
@@ -494,9 +468,9 @@ def clBot(op):
                         ki.updateGroup(G)
                         Ti = ki.reissueGroupTicket(op.param1)
                         cl.acceptGroupInvitationByTicket(op.param1,Ti)
+                        time.sleep(0.001)
                         ki.acceptGroupInvitationByTicket(op.param1,Ti)
-                        kk.acceptGroupInvitationByTicket(op.param1,Ti)
-                        kc.acceptGroupInvitationByTicket(op.param1,Ti)
+                        time.sleep(0.001)
                         X = cl.getGroup(op.param1)
                         X.preventJoinByTicket = True
                         cl.updateGroup(X)
@@ -513,49 +487,14 @@ def clBot(op):
                           if op.param2 not in Bots:
                             pass
                         try:
-                            kk.kickoutFromGroup(op.param1,[op.param2])
-                            cl.kickoutFromGroup(op.param1,[op.param2])
+                            cl.inviteIntoGroup(op.param1,[op.param3])+str(mid) 
+#kickoutFromGroup(op.param1,[op.param2])
+                            
+#random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
                         except:
                             try:
-                                random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
-                            except:
-                                print("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
-                            if op.param2 in wait["blacklist"]:
-                                pass
-                            else:
-                                if op.param2 in Bots:
-                                    pass
-                                else:
-                                    wait["blacklist"] = True
-
-                        G = kk.getGroup(op.param1)
-                        G.preventJoinByTicket = False
-                        kk.updateGroup(G)
-                        Ti = kk.reissueGroupTicket(op.param1)
-                        ki.acceptGroupInvitationByTicket(op.param1,Ti)
-                        kk.acceptGroupInvitationByTicket(op.param1,Ti)
-                        cl.acceptGroupInvitationByTicket(op.param1,Ti)
-                        X = ki.getGroup(op.param1)
-                        X.preventJoinByTicket = True
-                        ki.updateGroup(X)
-                        if op.param2 in wait["blacklist"]:
-                            pass
-                        else:
-                            if op.param2 in Bots:
-                                pass
-                            else:
-                                wait["blacklist"] = True
-                    if Bmid in op.param3:
-                      if op.param2 in Bots:
-                        if op.param2 not in Bots:
-                          if op.param2 in Creator:
-                            pass
-                        try:
-                            cl.kickoutFromGroup(op.param1,[op.param2])
-                            ki.kickoutFromGroup(op.param1,[op.param2])
-                        except:
-                            try:
-                                random.choie(ABC).kickoutFromGroup(op.param1,[op.param2])
+                                random.choice(ABC).inviteIntoGroup(op.param1,[op.param3])+ str(mid)
+#kickoutFromGroup(op.param1,[op.param2])
                             except:
                                 print("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
                             if op.param2 in wait["blacklist"]:
@@ -568,14 +507,15 @@ def clBot(op):
 
                         G = cl.getGroup(op.param1)
                         G.preventJoinByTicket = False
-                        cl.updateGroup(X)
+                        cl.updateGroup(G)
                         Ti = cl.reissueGroupTicket(op.param1)
-                        kk.acceptGroupInvitationByTicket(op.param1,Ti)
-                        cl.acceptGroupInvitationByTicket(op.param1,Ti)
                         ki.acceptGroupInvitationByTicket(op.param1,Ti)
-                        X = kk.getGroup(op.param1)
+                        time.sleep(0.001)
+                        cl.acceptGroupInvitationByTicket(op.param1,Ti)
+                        time.sleep(0.001)
+                        X = ki.getGroup(op.param1)
                         X.preventJoinByTicket = True
-                        kk.updateGroup(X)
+                        ki.updateGroup(X)
                         if op.param2 in wait["blacklist"]:
                             pass
                         else:
@@ -583,56 +523,20 @@ def clBot(op):
                                 pass
                             else:
                                 wait["blacklist"] = True
-                    if Creator in op.param3:
-                      if admin in op.param3:
-                        if op.param2 in Bots:
-                            pass
-                        try:
-                            random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
-                            random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
-                        except:
-                            try:
-                                if op.param2 not in Bots:
-                                    random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
-                                if op.param2 in wait["blacklist"]:
-                                    pass
-                                else:
-                                    random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
-                            except:
-                                print("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
-                            if op.param2 in wait["blacklist"]:
-                                pass
-                            if op.param2 in wait["whitelist"]:
-                                pass
-                            else:
-                                wait["blacklist"][op.param2] = True
-                        random.choice(ABC).inviteIntoGroup(op.param1,[op.param3])
-                        if op.param2 in wait["blacklist"]:
-                            pass
-                        if op.param2 in wait["whitelist"]:
-                            pass
-                        else:
-                            wait["blacklist"] = True
             if op.type == 13:
-                if op.param2 not in Creator:
-                 if op.param2 not in admin:
-                  if op.param2 not in Bots:
-                   if op.param2 in Creator:
-                    if op.param2 in admin:
-                     if op.param2 in Bots:
-                       pass
-                   elif wait["inviteprotect"] == True:
-                       wait ["blacklist"] = True
-                       cl.cancelGroupInvitation(op.param1,[op.param3])
-                       cl.kickoutFromGroup(op.param1,[op.param2])
-                       if op.param2 not in Creator:
-                        if op.param2 not in admin:
+                if op.param2 in Creator:
+                  if op.param2 in admin:
+                    if op.param2 in Bots:
+                      pass
+                elif wait["inviteprotect"] == True:
+                     wait ["blacklist"] = True
+                     cl.cancelGroupInvitation(op.param1,[op.param3])
+                     if op.param2 in Creator:
+                       if op.param2 in admin:
                          if op.param2 not in Bots:
-                          if op.param2 in Creator:
-                           if op.param2 in admin:
-                            if op.param2 not in Bots:
-                                cl.kickoutFromGroup(op.param1,[op.param2])
-                                pass
+                           
+#cl.kickoutFromGroup(op.param1,[op.param2])
+                           pass
 
             if op.type == 11:
                 if wait["Qr"] == True:
@@ -640,7 +544,8 @@ def clBot(op):
                       if op.param2 not in admin:
                         G = random.choice(ABC).getGroup(op.param1)
                         G.preventJoinByTicket = True
-                        random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
+                        
+#random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
                         random.choice(ABC).updateGroup(G)
                         wait["blacklist"] = True
                         cl.sendText(op.param1,cl.getContact(op.param2).displayName + "\n" + "Kami Masukin Kedalam Blacklis Boss")
@@ -661,13 +566,16 @@ def clBot(op):
                             cl.sendChatChecked(receiver, msg_id)
                             contact = cl.getContact(sender)
                             if text.lower() == 'me':
+                              if msg._from in admin:
                                 cl.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
                             elif text.lower() == 'speed':
+                              if msg._from in admin:
                                 start = time.time()
                                 cl.sendText(receiver, "TestSpeed")
                                 elapsed_time = time.time() - start
                                 cl.sendText(receiver, "%sdetik" % (elapsed_time))
                             elif 'pic' in text.lower():
+                              if msg._from in admin:
                                 try:
                                     key = eval(msg.contentMetadata["MENTION"])
                                     u = key["MENTIONEES"][0]["M"]
@@ -676,6 +584,7 @@ def clBot(op):
                                 except Exception as e:
                                     cl.sendText(receiver, str(e))
                             elif 'cover' in text.lower():
+                              if msg._from in admin:
                                 try:
                                     key = eval(msg.contentMetadata["MENTION"])
                                     u = key["MENTIONEES"][0]["M"]
@@ -685,6 +594,7 @@ def clBot(op):
                                     cl.sendText(receiver, str(e))
                             elif text.lower() == "creator":
                                 cl.sendMessage(receiver, None, contentMetadata={'mid': 'ub3808de9f7df35f57fb366d157f9790a'},contentType=13)
+                                cl.sendMessage(receiver, None, contentMetadata={'mid': 'uc5c11a2e0b6659eacce160de3309c817'}, contentType=13)
                                 cl.sendText(receiver, "Itu Majikan Kami")
                             elif text.lower() == "virus":
                               if msg._from in Creator:
@@ -702,66 +612,11 @@ def clBot(op):
                                   cl.sendText(msg.to,"Khusus admin")
 
 
-                            elif text.lower() == 'tag all':
-                              if msg._from in admin:
-                                group = cl.getGroup(msg.to)
-                                nama = [contact.mid for contact in group.members]
-                                nm1, nm2, nm3, nm4, nm5, jml = [], [], [], [], [], len(nama)
-                                if jml <= 100:
-                                    cl.mention(msg.to, nama)
-                                if jml > 100 and jml < 200:
-                                    for i in range(0, 100):
-                                        nm1 += [nama[i]]
-                                    cl.mention(msg.to, nm1)
-                                    for j in range(101, len(nama)):
-                                        nm2 += [nama[j]]
-                                    cl.mention(msg.to, nm2)
-                                if jml > 200 and jml < 300:
-                                    for i in range(0, 100):
-                                        nm1 += [nama[i]]
-                                    cl.mention(msg.to, nm1)
-                                    for j in range(101, 200):
-                                        nm2 += [nama[j]]
-                                    cl.mention(msg.to, nm2)
-                                    for k in range(201, len(nama)):
-                                        nm3 += [nama[k]]
-                                    cl.mention(msg.to, nm3)
-                                if jml > 300 and jml < 400:
-                                    for i in range(0, 100):
-                                        nm1 += [nama[i]]
-                                    cl.mention(msg.to, nm1)
-                                    for j in range(101, 200):
-                                        nm2 += [nama[j]]
-                                    cl.mention(msg.to, nm2)
-                                    for k in range(201, len(nama)):
-                                        nm3 += [nama[k]]
-                                    cl.mention(msg.to, nm3)
-                                    for l in range(301, len(nama)):
-                                        nm4 += [nama[l]]
-                                    cl.mention(msg.to, nm4)
-                                if jml > 400 and jml < 501:
-                                    for i in range(0, 100):
-                                        nm1 += [nama[i]]
-                                    cl.mention(msg.to, nm1)
-                                    for j in range(101, 200):
-                                        nm2 += [nama[j]]
-                                    cl.mention(msg.to, nm2)
-                                    for k in range(201, len(nama)):
-                                        nm3 += [nama[k]]
-                                    cl.mention(msg.to, nm3)
-                                    for l in range(301, len(nama)):
-                                        nm4 += [nama[l]]
-                                    cl.mention(msg.to, nm4)
-                                    for m in range(401, len(nama)):
-                                        nm5 += [nama[m]]
-                                    cl.mention(msg.to, nm5)             
-                                cl.sendText(receiver, "Members :"+str(jml))
- 
                             elif text.lower() == 'tagall':
                               if msg._from in admin:
                                 group = cl.getGroup(msg.to)
                                 nama = [contact.mid for contact in group.members]
-                                nm1, nm2, nm3, nm4, nm5, nm6, nm7, nm8, nm9, nm10, nm11, nm12, nm13, nm14, nm15, jml = [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], len(nama)
+                                nm1, nm2, nm3, nm4, nm5, jml = [], [], [], [], [], len(nama)
                                 if jml <= 20:
                                     cl.mention(msg.to, nama)
                                 if jml > 20 and jml < 40:
@@ -775,7 +630,7 @@ def clBot(op):
                                     for i in range(0, 20):
                                         nm1 += [nama[i]]
                                     cl.mention(msg.to, nm1)
-                                    for j in range(21, 40):
+                                    for j in range(20, 40):
                                         nm2 += [nama[j]]
                                     cl.mention(msg.to, nm2)
                                     for k in range(41, len(nama)):
@@ -801,342 +656,16 @@ def clBot(op):
                                     for j in range(21, 40):
                                         nm2 += [nama[j]]
                                     cl.mention(msg.to, nm2)
-                                    for k in range(41, len(nama)):
+                                    for k in range(41, 60): #len(nama)):
                                         nm3 += [nama[k]]
                                     cl.mention(msg.to, nm3)
-                                    for l in range(61, len(nama)):
+                                    for l in range(61, 80): #len(nama)):
                                         nm4 += [nama[l]]
                                     cl.mention(msg.to, nm4)
                                     for m in range(81, len(nama)):
                                         nm5 += [nama[m]]
-                                    cl.mention(msg.to, nm5)
-                                if jml > 100 and jml < 120:
-                                    for i in range(0, 20):
-                                        nm1 += [nama[i]]
-                                    cl.mention(msg.to, nm1)
-                                    for j in range(21, 40):
-                                        nm2 += [nama[j]]
-                                    cl.mention(msg.to, nm2)
-                                    for k in range(41, len(nama)):
-                                        nm3+= [nama[k]]
-                                    cl.mention(msg.to, nm3)
-                                    for l in range(61, len(nama)):
-                                        nm4 += [nama[l]]
-                                    cl.mention(msg.to, nm4)
-                                    for m in range(81, len(nama)):
-                                        nm5 += [nama[m]]
-                                    cl.mention(msg.to, nm5)
-                                    for n in range(101, len(nama)):
-                                        nm6 += [nama[n]]
-                                    cl.mention(msg.to, nm6)
-                                if jml > 120 and jml < 140:
-                                    for i in range(0, 20):
-                                        nm1 += [nama[i]]
-                                    cl.mention(msg.to, nm1)
-                                    for j in range(21, 40):
-                                        nm2 += [nama[j]]
-                                    cl.mention(msg.to, nm2)
-                                    for k in range(41, len(nama)):
-                                        nm3 += [nama[k]]
-                                    cl.mention(msg.to, nm3)
-                                    for l in range(61, len(nama)):
-                                        nm4 += [nama[l]]
-                                    cl.mention(msg.to, nm4)
-                                    for m in range(81, len(nama)):
-                                        nm5 += [nama[m]]
-                                    cl.mention(msg.to, nm5)
-                                    for n in range(101, len(nama)):
-                                        nm6 += [nama[n]]
-                                    cl.mention(msg.to, nm6)
-                                    for o in range(121, len(nama)):
-                                        nm7 += [nama[o]]
-                                    cl.mention(msg.to, nm7)
-                                if jml > 140 and jml < 160:
-                                    for i in range(0, 20):
-                                        nm1 += [nama[i]]
-                                    cl.mention(msg.to, nm1)
-                                    for j in range(21, 40):
-                                        nm2 += [nama[j]]
-                                    cl.mention(msg.to, nm2)
-                                    for k in range(41, len(nama)):
-                                        nm3 += [nama[k]]
-                                    cl.mention(msg.to, nm3)
-                                    for l in range(61, len(nama)):
-                                        nm4 += [nama[l]]
-                                    cl.mention(msg.to, nm4)
-                                    for m in range(81, len(nama)):
-                                        nm5 += [nama[m]]
-                                    cl.mention(msg.to, nm5)
-                                    for n in range(101, len(nama)):
-                                        nm6 += [nama[n]]
-                                    cl.mention(msg.to, nm6)
-                                    for o in range(121, len(nama)):
-                                        nm7 += [nama[o]]
-                                    cl.mention(msg.to, nm7)
-                                    for p in range(141, len(nama)):
-                                        nm8 += [nama[p]]
-                                    cl.mention(msg.to, nm8)
-                                if jml > 160 and jml < 180:
-                                    for i in range(0, 20):
-                                        nm1 += [nama[i]]
-                                    cl.mention(msg.to, nm1)
-                                    for j in range(21, 40):
-                                        nm2 += [nama[j]]
-                                    cl.mention(msg.to, nm2)
-                                    for k in range(41, len(nama)):
-                                        nm3 += [nama[k]]
-                                    cl.mention(msg.to, nm3)
-                                    for l in range(61, len(nama)):
-                                        nm4 += [nama[l]]
-                                    cl.mention(msg.to, nm4)
-                                    for m in range(81, len(nama)):
-                                        nm5 += [nama[m]]
-                                    cl.mention(msg.to, nm5)
-                                    for n in range(101, len(nama)):
-                                        nm6 += [nama[n]]
-                                    cl.mention(msg.to, nm6)
-                                    for o in range(121, len(nama)):
-                                        nm7 += [nama[o]]
-                                    cl.mention(msg.to, nm7)
-                                    for p in range(141, len(nama)):
-                                        nm8 += [nama[p]]
-                                    cl.mention(msg.to, nm8)
-                                    for q in range(161, len(nama)):
-                                        nm9 += [nama[q]]
-                                    cl.mention(msg.to, nm9)
-                                if jml > 180 and jml < 200:
-                                    for i in range(0, 20):
-                                        nm1 += [nama[i]]
-                                    cl.mention(msg.to, nm1)
-                                    for j in range(21, 40):
-                                        nm2 += [nama[j]]
-                                    cl.mention(msg.to, nm2)
-                                    for k in range(41, len(nama)):
-                                        nm3 += [nama[k]]
-                                    cl.mention(msg.to, nm3)
-                                    for l in range(61, len(nama)):
-                                        nm4 += [nama[l]]
-                                    cl.mention(msg.to, nm4)
-                                    for m in range(81, len(nama)):
-                                        nm5 += [nama[m]]
-                                    cl.mention(msg.to, nm5)
-                                    for n in range(101, len(nama)):
-                                        nm6 += [nama[n]]
-                                    cl.mention(msg.to, nm6)
-                                    for o in range(121, len(nama)):
-                                        nm7 += [nama[o]]
-                                    cl.mention(msg.to, nm7)
-                                    for p in range(141, len(nama)):
-                                        nm8 += [nama[p]]
-                                    cl.mention(msg.to, nm8)
-                                    for q in range(161, len(nama)):
-                                        nm9 += [nama[q]]
-                                    cl.mention(msg.to, nm9)
-                                    for r in range(181, len(nama)):
-                                        nm10 += [nama[r]]
-                                    cl.mention(msg.to, nm10)
-                                if jml > 220 and jml < 220:
-                                    for i in range(0, 20):
-                                        nm1 += [nama[i]]
-                                    cl.mention(msg.to, nm1)
-                                    for j in range(21, 40):
-                                        nm2 += [nama[j]]
-                                    cl.mention(msg.to, nm2)
-                                    for k in range(41, len(nama)):
-                                        nm3 += [nama[k]]
-                                    cl.mention(msg.to, nm3)
-                                    for l in range(61, len(nama)):
-                                        nm4 += [nama[l]]
-                                    cl.mention(msg.to, nm4)
-                                    for m in range(81, len(nama)):
-                                        nm5 += [nama[m]]
-                                    cl.mention(msg.to, nm5)
-                                    for n in range(101, len(nama)):
-                                        nm6 += [nama[n]]
-                                    cl.mention(msg.to, nm6)
-                                    for o in range(121, len(nama)):
-                                        nm7 += [nama[o]]
-                                    cl.mention(msg.to, nm7)
-                                    for p in range(141, len(nama)):
-                                        nm8 += [nama[p]]
-                                    cl.mention(msg.to, nm8)
-                                    for q in range(161, len(nama)):
-                                        nm9 += [nama[q]]
-                                    cl.mention(msg.to, nm9)
-                                    for r in range(181, len(nama)):
-                                        nm10 += [nama[r]]
-                                    cl.mention(msg.to, nm10)
-                                    for s in range(201, len(nama)):
-                                        nm11 += [nama[s]]
-                                    cl.mention(msg.to, nm11)
-                                if jml > 220 and jml < 240:
-                                    for i in range(0, 20):
-                                        nm1 += [nama[i]]
-                                    cl.mention(msg.to, nm1)
-                                    for j in range(21, 40):
-                                        nm2 += [nama[j]]
-                                    cl.mention(msg.to, nm2)
-                                    for k in range(41, len(nama)):
-                                        nm3 += [nama[k]]
-                                    cl.mention(msg.to, nm3)
-                                    for l in range(61, len(nama)):
-                                        nm4 += [nama[l]]
-                                    cl.mention(msg.to, nm4)
-                                    for m in range(81, len(nama)):
-                                        nm5 += [nama[m]]
-                                    cl.mention(msg.to, nm5)
-                                    for n in range(101, len(nama)):
-                                        nm6 += [nama[n]]
-                                    cl.mention(msg.to, nm6)
-                                    for o in range(121, len(nama)):
-                                        nm7 += [nama[o]]
-                                    cl.mention(msg.to, nm7)
-                                    for p in range(141, len(nama)):
-                                        nm8 += [nama[p]]
-                                    cl.mention(msg.to, nm8)
-                                    for q in range(161, len(nama)):
-                                        nm9 += [nama[q]]
-                                    cl.mention(msg.to, nm9)
-                                    for r in range(181, len(nama)):
-                                        nm10 += [nama[r]]
-                                    cl.mention(msg.to, nm10)
-                                    for s in range(201, len(nama)):
-                                        nm11 += [nama[s]]
-                                    cl.mention(msg.to, nm11)
-                                    for t in range(221, len(nama)):
-                                        nm12 += [nama[t]]
-                                    cl.mention(msg.to, nm12)
-                                if jml > 240 and jml < 260:
-                                    for i in range(0, 20):
-                                        nm1 += [nama[i]]
-                                    cl.mention(msg.to, nm1)
-                                    for j in range(21, 40):
-                                        nm2 += [nama[j]]
-                                    cl.mention(msg.to, nm2)
-                                    for k in range(41, len(nama)):
-                                        nm3 += [nama[k]]
-                                    cl.mention(msg.to, nm3)
-                                    for l in range(61, len(nama)):
-                                        nm4 += [nama[l]]
-                                    cl.mention(msg.to, nm4)
-                                    for m in range(81, len(nama)):
-                                        nm5 += [nama[m]]
-                                    cl.mention(msg.to, nm5)
-                                    for n in range(101, len(nama)):
-                                        nm6 += [nama[n]]
-                                    cl.mention(msg.to, nm6)
-                                    for o in range(121, len(nama)):
-                                        nm7 += [nama[o]]
-                                    cl.mention(msg.to, nm7)
-                                    for p in range(141, len(nama)):
-                                        nm8 += [nama[p]]
-                                    cl.mention(msg.to, nm8)
-                                    for q in range(161, len(nama)):
-                                        nm9 += [nama[q]]
-                                    cl.mention(msg.to, nm9)
-                                    for r in range(181, len(nama)):
-                                        nm10 += [nama[r]]
-                                    cl.mention(msg.to, nm10)
-                                    for s in range(201, len(nama)):
-                                        nm11 += [nama[s]]
-                                    cl.mention(msg.to, nm11)
-                                    for t in range(221, len(nama)):
-                                        nm12 += [nama[t]]
-                                    cl.mention(msg.to, nm12)
-                                    for u in range(241, len(nama)):
-                                        nm13 += [nama[u]]
-                                    cl.mention(msg.to, nm13)
-                                if jml > 260 and jml < 280:
-                                    for i in range(0, 20):
-                                        nm1 += [nama[i]]
-                                    cl.mention(msg.to, nm1)
-                                    for j in range(21, 40):
-                                        nm2 += [nama[j]]
-                                    cl.mention(msg.to, nm2)
-                                    for k in range(41, len(nama)):
-                                        nm3 += [nama[k]]
-                                    cl.mention(msg.to, nm3)
-                                    for l in range(61, len(nama)):
-                                        nm4 += [nama[l]]
-                                    cl.mention(msg.to, nm4)
-                                    for m in range(81, len(nama)):
-                                        nm5 += [nama[m]]
-                                    cl.mention(msg.to, nm5)
-                                    for n in range(101, len(nama)):
-                                        nm6 += [nama[n]]
-                                    cl.mention(msg.to, nm6)
-                                    for o in range(121, len(nama)):
-                                        nm7 += [nama[o]]
-                                    cl.mention(msg.to, nm7)
-                                    for p in range(141, len(nama)):
-                                        nm8 += [nama[p]]
-                                    cl.mention(msg.to, nm8)
-                                    for q in range(161, len(nama)):
-                                        nm9 += [nama[q]]
-                                    cl.mention(msg.to, nm9)
-                                    for r in range(181, len(nama)):
-                                        nm10 += [nama[r]]
-                                    cl.mention(msg.to, nm10)
-                                    for s in range(201, len(nama)):
-                                        nm11 += [nama[s]]
-                                    cl.mention(msg.to, nm11)
-                                    for t in range(221, len(nama)):
-                                        nm12 += [nama[t]]
-                                    cl.mention(msg.to, nm12)
-                                    for u in range(241, len(nama)):
-                                        nm13 += [nama[u]]
-                                    cl.mention(msg.to, nm13)
-                                    for v in range(261, len(nama)):
-                                        nm14 += [nama[v]]
-                                    cl.mention(msg.to, nm14)
-                                if jml > 80 and jml < 300:
-                                    for i in range(0, 20):
-                                        nm1 += [nama[i]]
-                                    cl.mention(msg.to, nm1)
-                                    for j in range(21, 40):
-                                        nm2 += [nama[j]]
-                                    cl.mention(msg.to, nm2)
-                                    for k in range(41, len(nama)):
-                                        nm3 += [nama[k]]
-                                    cl.mention(msg.to, nm3)
-                                    for l in range(61, len(nama)):
-                                        nm4 += [nama[l]]
-                                    cl.mention(msg.to, nm4)
-                                    for m in range(81, len(nama)):
-                                        nm5 += [nama[m]]
-                                    cl.mention(msg.to, nm5)
-                                    for n in range(101, len(nama)):
-                                        nm6 += [nama[n]]
-                                    cl.mention(msg.to, nm6)
-                                    for o in range(121, len(nama)):
-                                        nm7 += [nama[o]]
-                                    cl.mention(msg.to, nm7)
-                                    for p in range(141, len(nama)):
-                                        nm8 += [nama[p]]
-                                    cl.mention(msg.to, nm8)
-                                    for q in range(161, len(nama)):
-                                        nm9 += [nama[q]]
-                                    cl.mention(msg.to, nm9)
-                                    for r in range(181, len(nama)):
-                                        nm10 += [nama[r]]
-                                    cl.mention(msg.to, nm10)
-                                    for s in range(201, len(nama)):
-                                        nm11 += [nama[s]]
-                                    cl.mention(msg.to, nm11)
-                                    for t in range(221, len(nama)):
-                                        nm12 += [nama[t]]
-                                    cl.mention(msg.to, nm12)
-                                    for u in range(241, len(nama)):
-                                        nm13 += [nama[u]]
-                                    cl.mention(msg.to, nm13)
-                                    for v in range(261, len(nama)):
-                                        nm14 += [nama[v]]
-                                    cl.mention(msg.to, nm14)
-                                    for w in range(281, len(nama)):
-                                        nm15 += [nama[w]]
-                                    cl.mention(msg.to, nm15)
+                                    cl.mention(msg.to, nm5)             
                                 cl.sendText(receiver, "Members :"+str(jml))
-                           
                             elif text.lower() == 'sider':
                               if msg._from in admin:
                                 cl.sendText(msg.to,"Siap Boss")
@@ -1150,22 +679,30 @@ def clBot(op):
                                 cctv['sidermem'][msg.to] = ""
                                 cctv['cyduk'][msg.to]=True
                             elif text.lower() == 'ofsider':
+                              if msg._from in admin:
                                 if msg.to in cctv['point']:
                                     cctv['cyduk'][msg.to]=False
                                     cl.sendText(msg.to,"Ok Off Boss")
                                 else:
                                     cl.sendText(msg.to, "Heh belom di Set")
                             elif text.lower() == "mid":
+                              if msg._from in admin:
                                 cl.sendMessage(msg.to, msg._from)
 
                             elif text.lower() == 'help':
+                              if msg._from in admin:
                                 cl.sendText(msg.to,help)
+
+
                             elif text.lower() == 'help admin':
+                              if msg._from in admin:
                                 cl.sendText(msg.to,help2)
                             elif text.lower() == 'help creator':
+                              if msg._from in admin:
                                 cl.sendText(msg.to,help3)
 
                             elif "Mid @" in text:
+                              if msg._from in admin:
                                 _name = msg.text.replace("Mid @","")
                                 _nametarget = _name.rstrip(' ')
                                 gs = cl.getGroup(msg.to)
@@ -1176,9 +713,10 @@ def clBot(op):
                                         pass
 
                             elif text.lower() == "bot?":
+                              if msg._from in admin:
                                 cl.sendMessage(receiver, None, contentMetadata={'mid': mid},contentType = 13)
                                 ki.sendMessage(receiver, None, contentMetadata={'mid': Amid},contentType = 13)
-                                kk.sendMessage(receiver, None, contentMetadata={'mid': Bmid},contentType = 13)
+
                             elif text.lower() == 'join':
                               if msg._from in admin:
                                 if msg.toType == 2:
@@ -1189,8 +727,6 @@ def clBot(op):
                                     invsend = 0
                                     X = cl.reissueGroupTicket(msg.to)
                                     ki.acceptGroupInvitationByTicket(msg.to,X)
-                                    time.sleep(0.001)
-                                    kk.acceptGroupInvitationByTicket(msg.to,X)
                                     time.sleep(0.001)
                                     G.preventJoinByTicket = True
                                     cl.updateGroup(G)
@@ -1241,6 +777,7 @@ def clBot(op):
                                     cl.sendText(msg.to,"It can't be usedbesides the group.")
 
                             elif text.lower() == "ginfo":
+                              if msg._from in admin:
                                 if msg.toType == 2:
                                     ginfo = cl.getGroup(msg.to)
                                     try:
@@ -1295,6 +832,7 @@ def clBot(op):
                                 cl.sendText(msg.to,"All Protect off")
 
                             elif text.lower() == "status":
+                              if msg._from in admin:
                                 md = ""
                                 if wait["AutoCancel"] == True: md+="╠➩✔️ Auto Cancel : On\n"
                                 else: md+= "╠➩❌ Auto Cancel : Off\n"
@@ -1370,12 +908,6 @@ def clBot(op):
                               else:
                                   cl.sendText(msg.to,"Kuhsus admin")
 
-                            elif text.lower() == 'mode:self':
-                                mode = 'self'
-                                cl.sendText(receiver, 'Mode Public Off')
-                            elif text.lower() == 'mode:public':
-                                mode = 'public'
-                                cl.sendText(receiver, 'Mode Public ON')
                             elif "Rom" in msg.text:
                               if msg._from in Creator:
                                   thisgroup = cl.getGroups([msg.to])
@@ -1441,6 +973,7 @@ def clBot(op):
                                     if bln == str(k): bln = bulan[k-1]
                                 cl.sendText(receiver,hasil + ", " + inihari.strftime('%d') + " - " + bln + " - " + inihari.strftime('%Y') + "\nJam : [ " + inihari.strftime('%H:%M%S') + " ]")
                             elif text.lower() == 'rtime':
+                              if msg._from in admin:
                                 eltime = time.time() - mulai
                                 cl.sendText(receiver,"Ehun Bot Sudah BerjalanSelama :\n"+waktu(eltime))
 
@@ -1579,6 +1112,7 @@ def clBot(op):
                                             except:
                                                 cl.sendText(msg.to,"Succes BosQ")
                             elif text.lower() == 'banlist':
+                              if msg._from in admin:
                                 if wait["blacklist"] == {}:
                                     cl.sendText(msg.to,"Tidak Ada")
                                 else:
@@ -1608,8 +1142,8 @@ def clBot(op):
                                   wait["blacklist"] = {}
                                   cl.sendText(msg.to,"ヽ( ^ω^)ﾉ└ ❉Unbanned All")
 
-
                             elif text.lower() == 'memlist':
+                              if msg._from in admin:
                                   kontak = cl.getGroup(msg.to)
                                   group = kontak.members
                                   num=1
@@ -1620,6 +1154,7 @@ def clBot(op):
                                   msgs+="\n═════════List Member═════════\n\nTotal Members : %i" % len(group)
                                   cl.sendText(msg.to, msgs)
                             elif "Inpo" in msg.text:
+                              if msg._from in admin:
                                 key = eval(msg.contentMetadata["MENTION"])
                                 key1 = key["MENTIONEES"][0]["M"]
                                 contact = cl.getContact(key1)
@@ -1629,6 +1164,7 @@ def clBot(op):
                                 except:
                                     cl.sendText(msg.to,"Nama :\n" + contact.displayName + "\n\nMid :\n" + contact.mid + "\n\nBio :\n" + contact.statusMessage + "\n\nProfile Picture :\n" + str(cu))
                             elif text.lower() == 'glist':
+                              if msg._from in admin:
                                 cl.sendText(msg.to, "Tunggu Sebentar. . .")
                                 gid = cl.getGroupIdsJoined()
                                 h = ""
@@ -1648,18 +1184,22 @@ def clBot(op):
                                   cl.sendText(msg.to,mc)
                                   print("[Command]Stafflist executed")
                             elif text.lower() == 'k on':
+                              if msg._from in admin:
                                 wait["Contact"] = True
                                 cl.sendText(msg.to,"Contact activ")
                             elif text.lower() == 'k off':
+                              if msg._from in admin:
                                 wait["Contact"] = False
                                 cl.sendText(msg.to,"Contact di off")
                             elif text.lower() == "/token mac ":
+                              if msg._from in admin:
                                 user = msg.text.replace("/token mac ","")
                                 data = {"nama": "{}".format(user), "submit4": ""}
                                 post_response = requests.post(url = "https://lazybot.us/snip/", data = data)
                                 qr = post_response.text
                                 cl.sendMessage(msg.to, "{}".format(qr))
                             elif text.lower() == "/token dene ":
+                              if msg._from in admin:
                                 user = msg.text.replace("/token done ","")
                                 data = {"nama": "{}".format(user),"submit5": ""}
                                 post_response = requests.post(url = "https://lazybot.us/snip/", data = data)
