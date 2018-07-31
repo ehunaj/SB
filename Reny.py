@@ -612,7 +612,7 @@ def clBot(op):
                                   cl.sendText(msg.to,"Khusus admin")
 
 
-                            elif text.lower() == 'tagall':
+                            elif text.lower() == 'tag all':
                               if msg._from in admin:
                                 group = cl.getGroup(msg.to)
                                 nama = [contact.mid for contact in group.members]
@@ -666,6 +666,389 @@ def clBot(op):
                                         nm5 += [nama[m]]
                                     cl.mention(msg.to, nm5)             
                                 cl.sendText(receiver, "Members :"+str(jml))
+                            elif text.lower() == 'tagall':
+                              if msg._from in admin:
+                                group = cl.getGroup(msg.to)
+                                nama = [contact.mid for contact in group.members]
+                                nm1, nm2, nm3, nm4, nm5, nm6, nm7, nm8, nm9, nm10, nm11, nm12, nm13, nm14, nm15, jml = [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], len(nama)
+                                if jml <= 20:
+                                    cl.mention(msg.to, nama)
+                                if jml > 20 and jml < 40:
+                                    for i in range(0, 20):
+                                        nm1 += [nama[i]]
+                                    cl.mention(msg.to, nm1)
+                                    for j in range(21, len(nama)):
+                                        nm2 += [nama[j]]
+                                    cl.mention(msg.to, nm2)
+                                if jml > 40 and jml < 60:
+                                    for i in range(0, 20):
+                                        nm1 += [nama[i]]
+                                    cl.mention(msg.to, nm1)
+                                    for j in range(21, 40):
+                                        nm2 += [nama[j]]
+                                    cl.mention(msg.to, nm2)
+                                    for k in range(41, len(nama)):
+                                        nm3 += [nama[k]]
+                                    cl.mention(msg.to, nm3)
+                                if jml > 60 and jml < 80:
+                                    for i in range(0, 20):
+                                        nm1 += [nama[i]]
+                                    cl.mention(msg.to, nm1)
+                                    for j in range(21, 40):
+                                        nm2 += [nama[j]]
+                                    cl.mention(msg.to, nm2)
+                                    for k in range(41, 60):
+                                        nm3 += [nama[k]]
+                                    cl.mention(msg.to, nm3)
+                                    for l in range(61, len(nama)):
+                                        nm4 += [nama[l]]
+                                    cl.mention(msg.to, nm4)
+                                if jml > 80 and jml < 100:
+                                    for i in range(0, 20):
+                                        nm1 += [nama[i]]
+                                    cl.mention(msg.to, nm1)
+                                    for j in range(21, 40):
+                                        nm2 += [nama[j]]
+                                    cl.mention(msg.to, nm2)
+                                    for k in range(41, 60):
+                                        nm3 += [nama[k]]
+                                    cl.mention(msg.to, nm3)
+                                    for l in range(61, 80):
+                                        nm4 += [nama[l]]
+                                    cl.mention(msg.to, nm4)
+                                    for m in range(81, len(nama)):
+                                        nm5 += [nama[m]]
+                                    cl.mention(msg.to, nm5)
+                                if jml > 100 and jml < 120:
+                                    for i in range(0, 20):
+                                        nm1 += [nama[i]]
+                                    cl.mention(msg.to, nm1)
+                                    for j in range(21, 40):
+                                        nm2 += [nama[j]]
+                                    cl.mention(msg.to, nm2)
+                                    for k in range(41, 60):
+                                        nm3+= [nama[k]]
+                                    cl.mention(msg.to, nm3)
+                                    for l in range(61, 80):
+                                        nm4 += [nama[l]]
+                                    cl.mention(msg.to, nm4)
+                                    for m in range(81, 100):
+                                        nm5 += [nama[m]]
+                                    cl.mention(msg.to, nm5)
+                                    for n in range(101, len(nama)):
+                                        nm6 += [nama[n]]
+                                    cl.mention(msg.to, nm6)
+                                if jml > 120 and jml < 140:
+                                    for i in range(0, 20):
+                                        nm1 += [nama[i]]
+                                    cl.mention(msg.to, nm1)
+                                    for j in range(21, 40):
+                                        nm2 += [nama[j]]
+                                    cl.mention(msg.to, nm2)
+                                    for k in range(41, 60):
+                                        nm3 += [nama[k]]
+                                    cl.mention(msg.to, nm3)
+                                    for l in range(61, 80):
+                                        nm4 += [nama[l]]
+                                    cl.mention(msg.to, nm4)
+                                    for m in range(81, 100):
+                                        nm5 += [nama[m]]
+                                    cl.mention(msg.to, nm5)
+                                    for n in range(101, 120):
+                                        nm6 += [nama[n]]
+                                    cl.mention(msg.to, nm6)
+                                    for o in range(121, len(nama)):
+                                        nm7 += [nama[o]]
+                                    cl.mention(msg.to, nm7)
+                                if jml > 140 and jml < 160:
+                                    for i in range(0, 20):
+                                        nm1 += [nama[i]]
+                                    cl.mention(msg.to, nm1)
+                                    for j in range(21, 40):
+                                        nm2 += [nama[j]]
+                                    cl.mention(msg.to, nm2)
+                                    for k in range(41, 60):
+                                        nm3 += [nama[k]]
+                                    cl.mention(msg.to, nm3)
+                                    for l in range(61, 80):
+                                        nm4 += [nama[l]]
+                                    cl.mention(msg.to, nm4)
+                                    for m in range(81, 100):
+                                        nm5 += [nama[m]]
+                                    cl.mention(msg.to, nm5)
+                                    for n in range(101, 120):
+                                        nm6 += [nama[n]]
+                                    cl.mention(msg.to, nm6)
+                                    for o in range(121, 140):
+                                        nm7 += [nama[o]]
+                                    cl.mention(msg.to, nm7)
+                                    for p in range(141, len(nama)):
+                                        nm8 += [nama[p]]
+                                    cl.mention(msg.to, nm8)
+                                if jml > 160 and jml < 180:
+                                    for i in range(0, 20):
+                                        nm1 += [nama[i]]
+                                    cl.mention(msg.to, nm1)
+                                    for j in range(21, 40):
+                                        nm2 += [nama[j]]
+                                    cl.mention(msg.to, nm2)
+                                    for k in range(41, 60):
+                                        nm3 += [nama[k]]
+                                    cl.mention(msg.to, nm3)
+                                    for l in range(61, 80):
+                                        nm4 += [nama[l]]
+                                    cl.mention(msg.to, nm4)
+                                    for m in range(81, 100):
+                                        nm5 += [nama[m]]
+                                    cl.mention(msg.to, nm5)
+                                    for n in range(101, 120):
+                                        nm6 += [nama[n]]
+                                    cl.mention(msg.to, nm6)
+                                    for o in range(121, 140):
+                                        nm7 += [nama[o]]
+                                    cl.mention(msg.to, nm7)
+                                    for p in range(141, 160):
+                                        nm8 += [nama[p]]
+                                    cl.mention(msg.to, nm8)
+                                    for q in range(161, len(nama)):
+                                        nm9 += [nama[q]]
+                                    cl.mention(msg.to, nm9)
+                                if jml > 180 and jml < 200:
+                                    for i in range(0, 20):
+                                        nm1 += [nama[i]]
+                                    cl.mention(msg.to, nm1)
+                                    for j in range(21, 40):
+                                        nm2 += [nama[j]]
+                                    cl.mention(msg.to, nm2)
+                                    for k in range(41, 60):
+                                        nm3 += [nama[k]]
+                                    cl.mention(msg.to, nm3)
+                                    for l in range(61, 80):
+                                        nm4 += [nama[l]]
+                                    cl.mention(msg.to, nm4)
+                                    for m in range(81, 100):
+                                        nm5 += [nama[m]]
+                                    cl.mention(msg.to, nm5)
+                                    for n in range(101, 120):
+                                        nm6 += [nama[n]]
+                                    cl.mention(msg.to, nm6)
+                                    for o in range(121, 140):
+                                        nm7 += [nama[o]]
+                                    cl.mention(msg.to, nm7)
+                                    for p in range(141, 160):
+                                        nm8 += [nama[p]]
+                                    cl.mention(msg.to, nm8)
+                                    for q in range(161, 180):
+                                        nm9 += [nama[q]]
+                                    cl.mention(msg.to, nm9)
+                                    for r in range(181, len(nama)):
+                                        nm10 += [nama[r]]
+                                    cl.mention(msg.to, nm10)
+                                if jml > 200 and jml < 220:
+                                    for i in range(0, 20):
+                                        nm1 += [nama[i]]
+                                    cl.mention(msg.to, nm1)
+                                    for j in range(21, 40):
+                                        nm2 += [nama[j]]
+                                    cl.mention(msg.to, nm2)
+                                    for k in range(41, 60):
+                                        nm3 += [nama[k]]
+                                    cl.mention(msg.to, nm3)
+                                    for l in range(61, 80):
+                                        nm4 += [nama[l]]
+                                    cl.mention(msg.to, nm4)
+                                    for m in range(81, 100):
+                                        nm5 += [nama[m]]
+                                    cl.mention(msg.to, nm5)
+                                    for n in range(101, 120):
+                                        nm6 += [nama[n]]
+                                    cl.mention(msg.to, nm6)
+                                    for o in range(121, 140):
+                                        nm7 += [nama[o]]
+                                    cl.mention(msg.to, nm7)
+                                    for p in range(141, 160):
+                                        nm8 += [nama[p]]
+                                    cl.mention(msg.to, nm8)
+                                    for q in range(161, 180):
+                                        nm9 += [nama[q]]
+                                    cl.mention(msg.to, nm9)
+                                    for r in range(181, 200):
+                                        nm10 += [nama[r]]
+                                    cl.mention(msg.to, nm10)
+                                    for s in range(201, len(nama)):
+                                        nm11 += [nama[s]]
+                                    cl.mention(msg.to, nm11)
+                                if jml > 220 and jml < 240:
+                                    for i in range(0, 20):
+                                        nm1 += [nama[i]]
+                                    cl.mention(msg.to, nm1)
+                                    for j in range(21, 40):
+                                        nm2 += [nama[j]]
+                                    cl.mention(msg.to, nm2)
+                                    for k in range(41, 60):
+                                        nm3 += [nama[k]]
+                                    cl.mention(msg.to, nm3)
+                                    for l in range(61, 80):
+                                        nm4 += [nama[l]]
+                                    cl.mention(msg.to, nm4)
+                                    for m in range(81, 100):
+                                        nm5 += [nama[m]]
+                                    cl.mention(msg.to, nm5)
+                                    for n in range(101, 120):
+                                        nm6 += [nama[n]]
+                                    cl.mention(msg.to, nm6)
+                                    for o in range(121, 140):
+                                        nm7 += [nama[o]]
+                                    cl.mention(msg.to, nm7)
+                                    for p in range(141, 160):
+                                        nm8 += [nama[p]]
+                                    cl.mention(msg.to, nm8)
+                                    for q in range(161, 180):
+                                        nm9 += [nama[q]]
+                                    cl.mention(msg.to, nm9)
+                                    for r in range(181, 200):
+                                        nm10 += [nama[r]]
+                                    cl.mention(msg.to, nm10)
+                                    for s in range(201, 220):
+                                        nm11 += [nama[s]]
+                                    cl.mention(msg.to, nm11)
+                                    for t in range(221, len(nama)):
+                                        nm12 += [nama[t]]
+                                    cl.mention(msg.to, nm12)
+                                if jml > 240 and jml < 260:
+                                    for i in range(0, 20):
+                                        nm1 += [nama[i]]
+                                    cl.mention(msg.to, nm1)
+                                    for j in range(21, 40):
+                                        nm2 += [nama[j]]
+                                    cl.mention(msg.to, nm2)
+                                    for k in range(41, 60):
+                                        nm3 += [nama[k]]
+                                    cl.mention(msg.to, nm3)
+                                    for l in range(61, 80):
+                                        nm4 += [nama[l]]
+                                    cl.mention(msg.to, nm4)
+                                    for m in range(81, 100):
+                                        nm5 += [nama[m]]
+                                    cl.mention(msg.to, nm5)
+                                    for n in range(101, 120):
+                                        nm6 += [nama[n]]
+                                    cl.mention(msg.to, nm6)
+                                    for o in range(121, 140):
+                                        nm7 += [nama[o]]
+                                    cl.mention(msg.to, nm7)
+                                    for p in range(141, 160):
+                                        nm8 += [nama[p]]
+                                    cl.mention(msg.to, nm8)
+                                    for q in range(161, 180):
+                                        nm9 += [nama[q]]
+                                    cl.mention(msg.to, nm9)
+                                    for r in range(181, 200):
+                                        nm10 += [nama[r]]
+                                    cl.mention(msg.to, nm10)
+                                    for s in range(201, 220):
+                                        nm11 += [nama[s]]
+                                    cl.mention(msg.to, nm11)
+                                    for t in range(221, 240):
+                                        nm12 += [nama[t]]
+                                    cl.mention(msg.to, nm12)
+                                    for u in range(241, len(nama)):
+                                        nm13 += [nama[u]]
+                                    cl.mention(msg.to, nm13)
+                                if jml > 260 and jml < 280:
+                                    for i in range(0, 20):
+                                        nm1 += [nama[i]]
+                                    cl.mention(msg.to, nm1)
+                                    for j in range(21, 40):
+                                        nm2 += [nama[j]]
+                                    cl.mention(msg.to, nm2)
+                                    for k in range(41, 60):
+                                        nm3 += [nama[k]]
+                                    cl.mention(msg.to, nm3)
+                                    for l in range(61, 80):
+                                        nm4 += [nama[l]]
+                                    cl.mention(msg.to, nm4)
+                                    for m in range(81, 100):
+                                        nm5 += [nama[m]]
+                                    cl.mention(msg.to, nm5)
+                                    for n in range(101, 120):
+                                        nm6 += [nama[n]]
+                                    cl.mention(msg.to, nm6)
+                                    for o in range(121, 140):
+                                        nm7 += [nama[o]]
+                                    cl.mention(msg.to, nm7)
+                                    for p in range(141, 160):
+                                        nm8 += [nama[p]]
+                                    cl.mention(msg.to, nm8)
+                                    for q in range(161, 180):
+                                        nm9 += [nama[q]]
+                                    cl.mention(msg.to, nm9)
+                                    for r in range(181, 200):
+                                        nm10 += [nama[r]]
+                                    cl.mention(msg.to, nm10)
+                                    for s in range(201, 220):
+                                        nm11 += [nama[s]]
+                                    cl.mention(msg.to, nm11)
+                                    for t in range(221, 240):
+                                        nm12 += [nama[t]]
+                                    cl.mention(msg.to, nm12)
+                                    for u in range(241, 260):
+                                        nm13 += [nama[u]]
+                                    cl.mention(msg.to, nm13)
+                                    for v in range(261, len(nama)):
+                                        nm14 += [nama[v]]
+                                    cl.mention(msg.to, nm14)
+                                if jml > 280 and jml < 300:
+                                    for i in range(0, 20):
+                                        nm1 += [nama[i]]
+                                    cl.mention(msg.to, nm1)
+                                    for j in range(21, 40):
+                                        nm2 += [nama[j]]
+                                    cl.mention(msg.to, nm2)
+                                    for k in range(41, 60):
+                                        nm3 += [nama[k]]
+                                    cl.mention(msg.to, nm3)
+                                    for l in range(61, 80):
+                                        nm4 += [nama[l]]
+                                    cl.mention(msg.to, nm4)
+                                    for m in range(81, 100):
+                                        nm5 += [nama[m]]
+                                    cl.mention(msg.to, nm5)
+                                    for n in range(101, 120):
+                                        nm6 += [nama[n]]
+                                    cl.mention(msg.to, nm6)
+                                    for o in range(121, 140):
+                                        nm7 += [nama[o]]
+                                    cl.mention(msg.to, nm7)
+                                    for p in range(141, 160):
+                                        nm8 += [nama[p]]
+                                    cl.mention(msg.to, nm8)
+                                    for q in range(161, 180):
+                                        nm9 += [nama[q]]
+                                    cl.mention(msg.to, nm9)
+                                    for r in range(181, 200):
+                                        nm10 += [nama[r]]
+                                    cl.mention(msg.to, nm10)
+                                    for s in range(201, 220):
+                                        nm11 += [nama[s]]
+                                    cl.mention(msg.to, nm11)
+                                    for t in range(221, 240):
+                                        nm12 += [nama[t]]
+                                    cl.mention(msg.to, nm12)
+                                    for u in range(241, 260):
+                                        nm13 += [nama[u]]
+                                    cl.mention(msg.to, nm13)
+                                    for v in range(261, 280):
+                                        nm14 += [nama[v]]
+                                    cl.mention(msg.to, nm14)
+                                    for w in range(281, len(nama)):
+                                        nm15 += [nama[w]]
+                                    cl.mention(msg.to, nm15)
+                                if jml <= 300:
+                                    print('mention')
+                                cl.sendText(receiver, "Members :"+str(jml))
+
+
                             elif text.lower() == 'sider':
                               if msg._from in admin:
                                 cl.sendText(msg.to,"Siap Boss")
