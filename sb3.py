@@ -44,9 +44,10 @@ Bmid = kk.profile.mid
 
 Induk= [mid]
 Bots = [mid,Amid,Bmid]
-Creator = ["ub3808de9f7df35f57fb366d157f9790a"]
-admin = ["ub3808de9f7df35f57fb366d157f9790a"] 
-#uc5c11a2e0b6659eacce160de3309c817","uc70e6d1d8ab2061a666aabde3a1f0001","u0b0e09dce2bd119f794a1adaa977efce","u5a983f6c4d513d79b19ca11cb5dc53ec"]
+Creator = ["u0b0e09dce2bd119f794a1adaa977efce"]
+#ub3808de9f7df35f57fb366d157f9790a"]
+admin = ["u0b0e09dce2bd119f794a1adaa977efce"]
+#ub3808de9f7df35f57fb366d157f9790a"] 
 
 contact = cl.getProfile()
 contact = ki.getProfile()
