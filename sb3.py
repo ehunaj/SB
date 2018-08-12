@@ -7,8 +7,7 @@ import json, time, random, sys, json, codecs, threading, glob, re, string, os, r
 
 #cl = LineClient()
 #cl = LineClient(authToken="Eumf83FHsNvmxrTDTMnf.PK6g3NwwVbpQXheSX+r3NW.IO5Jpxu1rziFrVhB7rEUkKwEghiiN1B9E3U3ORhWA5Q=")
-cl = LineClient(id='hery.suheri@ymail.com', passwd='
-ehun4321')
+cl = LineClient(id='hery.suheri@ymail.com', passwd='ajibarang')
 cl.log("Auth Token : " + str(cl.authToken))
 
 #ki = LineClient(authToken="EvgUjkrBXFMFMK2kPF2d.5ws3BZPRgZdFiDAuWEqM+q.h2u7jVw9HV4SCx6rhHdtk//8z4fxC7UM18ZXJxVCxh8=")
