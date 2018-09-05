@@ -345,19 +345,15 @@ def clBot(op):
 
 
             #if op.type == 19:
-                    #
-if wait["AutoKick"] == True:
+                    #if wait["AutoKick"] == True:
                         #try:
-                            #
-if op.param3 in Creator:
-                             #
-if op.param3 in admin:
+                            #if op.param3 in Creator:
+                             #if op.param3 in admin:
                               
 #if op.param3 in Bots:
                                   
 #pass
-                             #
-if op.param2 in Creator:
+                             #if op.param2 in Creator:
                               
 #if op.param2 in admin:
                                
@@ -367,8 +363,7 @@ if op.param2 in Creator:
                                
 #else:
                                    
-#random.choice(ABC).
-kickoutFromGroup(op.param1,[op.param2])
+#random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
                                    
 #if op.param2 in wait["blacklist"]:
                                        
@@ -376,8 +371,7 @@ kickoutFromGroup(op.param1,[op.param2])
                             
 #else:
                                 
-#random.choice(ABC).
-inviteIntoGroup(op.param1,[op.param3])
+#random.choice(ABC).inviteIntoGroup(op.param1,[op.param3])
                                 
                         #except:
                             
@@ -389,8 +383,7 @@ inviteIntoGroup(op.param1,[op.param3])
                                         
 #if op.param2 not in Bots:
                                             
-#random.choice(ABC).
-kickoutFromGroup(op.param1,[op.param2])
+#random.choice(ABC).kickoutFromGroup(op.param1,[op.param2])
                                 
 #if op.param2 in wait["blacklist"]:
                                     
@@ -398,17 +391,12 @@ kickoutFromGroup(op.param1,[op.param2])
                                 
 #else:
                                     
-#random.choice(ABC).
-inviteIntoGroup(op.param1,[op.param3])
+#random.choice(ABC).inviteIntoGroup(op.param1,[op.param3])
                             
 #except:
                                 
-#print("client Kick regulation 
-or Because it does not exist in 
-the group\ngid=["+op.param1+"]\
-nmid=["+op.param2+"]")
-                            #
-if op.param2 in wait["blacklist"]:
+#print("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
+                            #if op.param2 in wait["blacklist"]:
                                 
 #pass
                             
@@ -425,13 +413,11 @@ if op.param2 in wait["blacklist"]:
 #else:
                                     
 #wait["blacklist"] = True
-                        #
-if op.param2 in wait["blacklist"]:
+                        #if op.param2 in wait["blacklist"]:
                             
 #pass
                         #else:
-                            #
-if op.param2 in Creator:
+                            #if op.param2 in Creator:
                                 
 #if op.param2 in admin:
                                     
