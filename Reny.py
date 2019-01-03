@@ -6,7 +6,7 @@ from humanfriendly import format_timespan, format_size, format_number, format_le
 import json, time, random, sys, json, codecs, threading, glob, re, string, os, requests, six, ast, urllib, urllib3, urllib.parse, traceback, atexit
 
 #cl = LineClient()
-#cl = LineClient(authToken="kekefortuna@gmail.com',passwd='fortuna1208')
+#cl = LineClient(id="kekefortuna@gmail.com",passwd="fortuna1208")
 cl.log("Auth Token : " + str(cl.authToken))
 #ki = LineClient(authToken="EuHJCQ1vqmlZ4WwyLl67.g9nBPWGTC+xOOBjDfnvjrW.dd+sazx1tT6IEW4oZ0DkOVIgEURupf6un4Wt3+JR9/E=")
 #ki.log("Auth Token : " + str(ki.authToken))
