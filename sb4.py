@@ -28,7 +28,7 @@ kk = LineClient(id='gmail mu',passwd='passwd mu')
 #kk.log("Auth Token : " + str(kk.authToken))
 
 #kc = LineClient(authToken='EEPv9hLZQfh0V6Nwit4e.pYxjKbe7w+1iIyyJvihN7G.Ktb2/uRra3CdZLkGzXGzPhAeNakUyv4CCVvySDgtZ9g=')
-kc = LineClient(id='gmail mi',passwd='passwd mu')
+kc = LineClient(id='gmail mu',passwd='passwd mu')
 #kc.log("Auth Token : " + str(kc.authToken))
 k1 = LineClient(id='gmail mu',passwd='passwd mu')
 #k1 = LineClient(authToken='EEBxNJz2X9nP8BwbwVz7.B1SXxj/vzd0tDPyYfa16jW.ijee2m9cnmKashu3pHE1+bpXw6VxFlpkKuN+D6WA1UM=')
