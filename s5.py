@@ -8,36 +8,33 @@ from bs4 import BeautifulSoup
 from googletrans import Translator
 import youtube_dl
 
-#st = LineClient(authToken='EEB1oMXT7BAydWsYCxT8.9sY37/mZOkHTT1mJDPli2a.s/IAtEYlGDie1U29s5PKm2jlKHjP6Ow4iFF0+r/zmNA=')
-#st = LineClient(id='ajasarehun@gmail.com',passwd='ehun4321')
-
-st = LineClient(id='ehunaj@gmail.com',passwd='ehun4321')
+st = LineClient(authToken='EEB1oMXT7BAydWsYCxT8.9sY37/mZOkHTT1mJDPli2a.s/IAtEYlGDie1U29s5PKm2jlKHjP6Ow4iFF0+r/zmNA=')
+#st = LineClient(id='gmail',passwd='pass')
 #st.log("Auth Token : " + str(st.authToken))
-#sw = LineClient(id='dsarehundoank3@gmail.com',passwd='ehun4321')
+
+sw = LineClient(authToken='token')
+#sw = LineClient(id='Gmail',passwd='pass')
 #sw.log("Auth Token : " + str(sw.authToken))
-sw = st
-#cl = LineClient(authToken='EEOMqcJCDnhy0LkYtyw1.8nezDhK7HGW9hVtLK4qvGq.lya/ju53h6/aiqjUaqLP5r/a4pNgFdhmqkwffDOseWw=')
-cl = LineClient(id='dsarehun@gmail.com',passwd='ehun4321')
+
+cl = LineClient(authToken='EEOMqcJCDnhy0LkYtyw1.8nezDhK7HGW9hVtLK4qvGq.lya/ju53h6/aiqjUaqLP5r/a4pNgFdhmqkwffDOseWw=')
+#cl = LineClient(id='gmail',passwd='pass')
 #cl.log("Auth Token : " + str(cl.authToken))
-#ki = cl
-#ki = LineClient(authToken='EE3QfCMCrYbauXLb7sK1.RNY0mD5hMgMbcfE1tEAyWq.ijWoYTXalcoq+QEwiP1Sbdwt4htdwT/oaCdvApmMlOM=')
-ki = LineClient(id='nrsfamil1@gmail.com',passwd='ehun4321')
+
+ki = LineClient(authToken='EE3QfCMCrYbauXLb7sK1.RNY0mD5hMgMbcfE1tEAyWq.ijWoYTXalcoq+QEwiP1Sbdwt4htdwT/oaCdvApmMlOM=')
+#ki = LineClient(id='gmail',passwd='')
 #ki.log("Auth Token : " + str(ki.authToken))
 
 
-#kk = LineClient(authToken='EEKXXaV8be3s0HfImeP4.wOkmirNWe41AVCDdjgw/za.FN69+ft+KTYXHbK1F8IuXJLH20vAfqBuQsRmTdhTrto=')
-kk = LineClient(id='ehun517@gmail.com',passwd='ehun4321')
+kk = LineClient(authToken='EEKXXaV8be3s0HfImeP4.wOkmirNWe41AVCDdjgw/za.FN69+ft+KTYXHbK1F8IuXJLH20vAfqBuQsRmTdhTrto=')
+#kk = LineClient(id='gmail',passwd='pass')
 #kk.log("Auth Token : " + str(kk.authToken))
-#kc = LineClient(authToken='EEPv9hLZQfh0V6Nwit4e.pYxjKbe7w+1iIyyJvihN7G.Ktb2/uRra3CdZLkGzXGzPhAeNakUyv4CCVvySDgtZ9g=')
 
-kc = LineClient(id='ehun56@gmail.com',passwd='ehun4321')
-   
-#kc = kk = ki = cl
-#ehun = LineClient(id='dsarehun@gmail.com',passwd='ehun4321')
+kc = LineClient(authToken='EEPv9hLZQfh0V6Nwit4e.pYxjKbe7w+1iIyyJvihN7G.Ktb2/uRra3CdZLkGzXGzPhAeNakUyv4CCVvySDgtZ9g=')
+#kc = LineClient(id='gmail',passwd='pss')
 #kc.log("Auth Token : " + str(kc.authToken))
 
-#ehun = LineClient(authToken='EEVtipitLXh61ur45gaa.S4cn6FFFnFv+S2Brv+L5cG.PN47ddVNtwPjIjYPIAdZumpP397fvCR7E90mwRiXzmc=')
-ehun = LineClient(id='ehunaja18@gmail.com',passwd='ehun4321')
+ehun = LineClient(authToken='EEVtipitLXh61ur45gaa.S4cn6FFFnFv+S2Brv+L5cG.PN47ddVNtwPjIjYPIAdZumpP397fvCR7E90mwRiXzmc=')
+#ehun = LineClient(id='gmil',passwd='pss')
 #ehun.log("Auth Token : " + str(ehun.authToken))
 #ehun = cl
 print("success")
