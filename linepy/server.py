@@ -19,19 +19,20 @@ class LineServer(object):
     LINE_SQUARE_QUERY_PATH      = '/SQS1'
 
     CHANNEL_ID = {
-        'LINE_TIMELINE': '1341209950',
+        'LINE_TIMELINE': '1341209850',
         'LINE_WEBTOON': '1401600689',
         'LINE_TODAY': '1518712866',
         'LINE_STORE': '1376922440',
         'LINE_MUSIC': '1381425814'
     }
 
-    USER_AGENT  = 'Line/1.7.14' #7.18.1'
-    APP_TYPE    = ApplicationType.IOS
-    APP_NAME    = 'CHROMEOS\t1.4.17\tChrome_OS\t1'
-    #APP_NAME    = 'IOSIPAD\t7.18.1\tiPhone OS\t11.2.5'
+    USER_AGENT  = 'Line/7.18.1'
+    APP_TYPE    = 'IOSIPAD\t7.18.1\tiPhone OS\t11.2.5'
+    #ApplicationType.IOS
+    #APP_NAME    = 'CHROMEOS\t1.4.17\tChrome_OS\t1'
+    APP_NAME    = 'IOSIPAD\t7.18.1\tiPhone OS\t11.2.5'
     CARRIER     = '51089, 1-0'
-    SYSTEM_NAME = 'FDLRCN'
+    SYSTEM_NAME = 'Ehun'
     IP_ADDR     = '8.8.8.8'
     EMAIL_REGEX = re.compile(r"[^@]+@[^@]+\.[^@]+")
 
