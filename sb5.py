@@ -8,24 +8,15 @@ from bs4 import BeautifulSoup
 from googletrans import Translator
 import youtube_dl
 #    KAPTEN     ==================
-#cl = LineClient(authToken='ELbWQk7gzRAIDxpZbhNc.xmOZkKoDi9P/nYUM4NOsla.DTQXEiUMjwpN3/ugLX28CoJ+BEKy2BAmmr4wodxNjl8=')
-cl = LineClient(id='ehunaja0@gmail.com',passwd='ehun4321')
+cl = LineClient(authToken='ELbWQk7gzRAIDxpZbhNc.xmOZkKoDi9P/nYUM4NOsla.DTQXEiUMjwpN3/ugLX28CoJ+BEKy2BAmmr4wodxNjl8=')
 #    ASISTEN    =================
-#ki = LineClient(authToken='ELdlex83pgdIINxfS9xd.PVmbdG5nG77Km5hrSxbgtq.pV+gLIFaHvihv/ddKLh9r/blsvFJTG3BBkuIrZhL3Ko=')
-ki = LineClient(id='ehunaja1@gmail.com',passwd='ehun4321')
-#kk = LineClient(authToken='ELcsZWmnSMAbLtzDARQe.NzWU4uHxu25IbVF0crqixG.OyHbHaGHiKMOjAuCz5e+Bw32DkolaAZYbP+tQYzMo+c=')
-kk = LineClient(id='ehunaja2@gmail.com',passwd='ehun4321')
-#kc = LineClient(authToken='ELh71kPbPXpEnuY20zc9.p6BZ50ZbaAbHQXlkeO8fkq.VoWaY08pxOzfQUshkPAzRP+ANFH7hBR5eGIORQUmbmg=')
-kc = LineClient(id='ehunaja3@gmail.com',passwd='ehun4321')
-#kd = LineClient(authToken='EL34TOFo6HJffCd82W24.nPdFxcNp9N+djrQIkTL6za.PIH5/UpP7hITyoDEz3S1ij9VEb7BT/wv4OtsmiFWK+8=')
-kd = LineClient(id='ehunaja4@gmail.com',passwd='ehun4321')
-#ke = LineClient(authToken='ELXITAhDuLr0XjLMYNj6./P1jbnnzbpY+YBIdcOFj1G.uJYnkxGphgupEuYCYxRFxoo4brdkke9W7vCOyETAFwk=')
-ke = LineClient(id='ehunaja5@gmail.com',passwd='ehun4321')
-#sw = LineClient(authToken='
-#sw = LineClient(id='ehunaja6@gmail.com',passwd='ehun4321')
+ki = LineClient(authToken='ELdlex83pgdIINxfS9xd.PVmbdG5nG77Km5hrSxbgtq.pV+gLIFaHvihv/ddKLh9r/blsvFJTG3BBkuIrZhL3Ko=')
+kk = LineClient(authToken='ELcsZWmnSMAbLtzDARQe.NzWU4uHxu25IbVF0crqixG.OyHbHaGHiKMOjAuCz5e+Bw32DkolaAZYbP+tQYzMo+c=')
+kc = LineClient(authToken='ELh71kPbPXpEnuY20zc9.p6BZ50ZbaAbHQXlkeO8fkq.VoWaY08pxOzfQUshkPAzRP+ANFH7hBR5eGIORQUmbmg=')
+kd = LineClient(authToken='
+ke = LineClient(authToken='ELXITAhDuLr0XjLMYNj6./P1jbnnzbpY+YBIdcOFj1G.uJYnkxGphgupEuYCYxRFxoo4brdkke9W7vCOyETAFwk=')
  #    INDUK   ===========
-#ehun = LineClient(authToken='ELx8GmlEvnkl66A4BUMa.S4cn6FFFnFv+S2Brv+L5cG.MRvTviDT/ygOybCDBV3SS1C8qVyFR36EdrE9K/DJUlc=')
-ehun = LineClient(id='ajasarehun@gmail.com',passwd='ehun4321')
+ehun = LineClient(authToken='ELx8GmlEvnkl66A4BUMa.S4cn6FFFnFv+S2Brv+L5cG.MRvTviDT/ygOybCDBV3SS1C8qVyFR36EdrE9K/DJUlc=')
 
 print("success")
 
