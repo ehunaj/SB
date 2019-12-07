@@ -26,10 +26,10 @@ class LineServer(object):
         'LINE_MUSIC': '1381425814'
     }
 
-    USER_AGENT  = 'Line/7.18.1'
+    USER_AGENT  = 'Line/7.14.0'
     APP_TYPE    = ApplicationType.IOS
     #APP_NAME    = 'CHROMEOS\t1.4.17\tChrome_OS\t1'
-    APP_NAME    = 'IOSIPAD\x097.18.1\x09iPhone_OS\x0910.12.0'  #    IOSIPAD\t7.18.1\tiPhone OS\t11.2.5'
+    APP_NAME    = 'IOSIPAD\x097.14.0\x09iPhone_OS\x0910.12.0'  #    IOSIPAD\t7.18.1\tiPhone OS\t11.2.5'
     CARRIER     = '51089, 1-0'
     SYSTEM_NAME = 'Ehun'
     IP_ADDR     = '8.8.8.8'
