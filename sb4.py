@@ -12,30 +12,30 @@ st = LineClient(id='gmail mu',passwd='passwd mu')
 #st.log("Auth Token : " + str(st.authToken))
 
 #sw = LineClient(authToken='EEyJwVhIhbnbtM4Win64.BvIR7Jw9VfAdsJzU/uMhba.4yolyBMYb0tTD5B0SPaCSWIwqYRhvtgUAaFrWSE3ASA=')
-sw = LineClient(id='gmail mu',passwd='passwd mu')
+sw = LineClient() #id='gmail mu',passwd='passwd mu')
 #sw.log("Auth Token : " + str(sw.authToken))
 
 #cl = LineClient(authToken='EEOMqcJCDnhy0LkYtyw1.8nezDhK7HGW9hVtLK4qvGq.lya/ju53h6/aiqjUaqLP5r/a4pNgFdhmqkwffDOseWw=')
-cl = LineClient(id='gmail mu',passwd='passwd mu')
+cl = LineClient() #id='gmail mu',passwd='passwd mu')
 #cl.log("Auth Token : " + str(cl.authToken))
 
 #ki = LineClient(authToken='EE3QfCMCrYbauXLb7sK1.RNY0mD5hMgMbcfE1tEAyWq.ijWoYTXalcoq+QEwiP1Sbdwt4htdwT/oaCdvApmMlOM=')
-ki = LineClient(id'gmail mu',passwd='passwd mu')
+ki = LineClient() #id'gmail mu',passwd='passwd mu')
 #ki.log("Auth Token : " + str(ki.authToken))
 
 #kk = LineClient(authToken='EEKXXaV8be3s0HfImeP4.wOkmirNWe41AVCDdjgw/za.FN69+ft+KTYXHbK1F8IuXJLH20vAfqBuQsRmTdhTrto=')
-kk = LineClient(id='gmail mu',passwd='passwd mu')
+kk = LineClient() #id='gmail mu',passwd='passwd mu')
 #kk.log("Auth Token : " + str(kk.authToken))
 
 #kc = LineClient(authToken='EEPv9hLZQfh0V6Nwit4e.pYxjKbe7w+1iIyyJvihN7G.Ktb2/uRra3CdZLkGzXGzPhAeNakUyv4CCVvySDgtZ9g=')
-kc = LineClient(id='gmail mu',passwd='passwd mu')
+kc = LineClient() #id='gmail mu',passwd='passwd mu')
 #kc.log("Auth Token : " + str(kc.authToken))
-k1 = LineClient(id='gmail mu',passwd='passwd mu')
+k1 = LineClient() #id='gmail mu',passwd='passwd mu')
 #k1 = LineClient(authToken='EEBxNJz2X9nP8BwbwVz7.B1SXxj/vzd0tDPyYfa16jW.ijee2m9cnmKashu3pHE1+bpXw6VxFlpkKuN+D6WA1UM=')
 #k1.log("Auth Token : " + str(k1.authToken))
 
 #ehun = LineClient(authToken='EEVtipitLXh61ur45gaa.S4cn6FFFnFv+S2Brv+L5cG.PN47ddVNtwPjIjYPIAdZumpP397fvCR7E90mwRiXzmc=')
-ehun = LineClient(id='gmail mu',passwd='passwd mu')
+ehun = LineClient() #id='gmail mu',passwd='passwd mu')
 #cl.log("Auth Token : " + str(ehun.authToken))
 
 print("success")
@@ -3388,3 +3388,5 @@ def atend():
         json.dump(msg_dict, f, ensure_ascii=False, indent=4,separators=(',', ': '))
         print("BYE")
 atexit.register(atend)
+
+#
